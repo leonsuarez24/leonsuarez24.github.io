@@ -11,19 +11,15 @@ I am a **PhD student in Computer Science** at the [Universidad Industrial de San
 
 My work sits at the meeting point of **optics, optimization and deep learning**: I design the sensing side of imaging systems and the algorithms that invert them, so that the two are optimized as one. In practice that means coded apertures and phase masks that a fabrication process can actually produce, reconstruction algorithms that stay faithful to the physics of the measurement, and learned priors — diffusion models, implicit neural representations — that fill in what the measurements cannot see.
 
-I came to this from an unusual direction. I trained first as a **civil engineer**, graduating *Cum Laude*, before moving into computational imaging through a Master's in Computer and Systems Engineering. That background still shows up in my work: a good part of my research is applied to **geophysics** — seismic data reconstruction, and gravimetric inversion of subsurface density from field measurements at the Cerro Machín volcano.
+I came to this from an unusual direction — my first degree was in **civil engineering**, finished *Cum Laude* — and that background still shows up in my work. A good part of my research is applied to **geophysics**: reconstructing irregularly sampled seismic data, and inverting subsurface density from gravimetric field measurements at the Cerro Machín volcano.
 
-You can read more about the problems I work on under [Research](/research/), or browse the [full publication list](/publications/).
+My full publication list, research experience and background are on my [CV](/cv/).
 
-Background
+Biography
 ======
-* **PhD in Computer Science**, Universidad Industrial de Santander — *in progress*
-* **MSc in Computer and Systems Engineering**, Universidad Industrial de Santander — September 2025
-* **BSc in Civil Engineering** *(Cum Laude)*, Universidad Industrial de Santander — April 2023
+*The short biography used in my publications:*
 
-At a glance
-======
-14 publications, including IEEE **TGRS** and **TCI** journal articles and papers at **NeurIPS**, **ICASSP**, **ICIP** and **CAMSAP**. Around 49 citations, h-index 3 ([Google Scholar](https://scholar.google.com/citations?user=FAT4XIUAAAAJ&hl=en)).
+Leon Suarez-Rodriguez received a B.S.E. degree in Civil Engineering from Universidad Industrial de Santander, Bucaramanga, Colombia, in 2023, and a Master's degree in Systems Engineering in 2025 from the same institution. He is currently pursuing a Ph.D. in Computer Science at Universidad Industrial de Santander. His research interests include inverse problems and deep learning applications in geosciences and computational imaging.
 
 Selected news
 ======

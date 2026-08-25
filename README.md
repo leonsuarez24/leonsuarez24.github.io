@@ -17,10 +17,8 @@ hosted on GitHub Pages.
 | `_config.yml` | Site-wide settings: title, theme (`mint`), sidebar profile and social links |
 | `_data/navigation.yml` | Top navigation bar |
 | `_pages/about.md` | Home page |
-| `_pages/research.md` | Research themes |
-| `_pages/publications.html` | Publication list (renders `_publications/`) |
-| `_pages/cv.md` | CV page |
-| `_publications/` | One Markdown file per paper |
+| `_pages/cv.md` | CV page, including the publication list grouped by category |
+| `_publications/` | One Markdown file per paper; each also gets its own page |
 | `files/CV_Leon.pdf` | Downloadable CV |
 | `images/profile.jpg` | Sidebar photo |
 
@@ -44,7 +42,8 @@ citation: 'Authors. (Year). &quot;Title.&quot; <i>Venue</i>. doi: ...'
 Longer description rendered on the paper's own page.
 ```
 
-Section headings and their order come from `publication_category` in `_config.yml`.
+Section headings and their order on the CV come from `publication_category` in `_config.yml`.
+A category with no entries is skipped.
 
 ## Running locally
 
