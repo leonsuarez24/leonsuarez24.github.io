@@ -11,8 +11,6 @@ I am a **PhD student in Computer Science** at the [Universidad Industrial de San
 
 Biography
 ======
-*The short biography used in my publications:*
-
 Leon Suarez-Rodriguez received a B.S.E. degree in Civil Engineering from Universidad Industrial de Santander, Bucaramanga, Colombia, in 2023, and a Master's degree in Systems Engineering in 2025 from the same institution. He is currently pursuing a Ph.D. in Computer Science at Universidad Industrial de Santander. His research interests include inverse problems and deep learning applications in geosciences and computational imaging.
 
 Selected news
