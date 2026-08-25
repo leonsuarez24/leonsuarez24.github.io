@@ -53,5 +53,5 @@ Languages
 Contact
 ======
 * Universidad Industrial de Santander, Bucaramanga, Colombia
-* [leonsuarez24@gmail.com](mailto:leonsuarez24@gmail.com) · +57 300 229 9834
+* [leonsuarez24@gmail.com](mailto:leonsuarez24@gmail.com)
 * [Google Scholar](https://scholar.google.com/citations?user=FAT4XIUAAAAJ&hl=en) · [LinkedIn](https://www.linkedin.com/in/leon-suarez24/) · [GitHub](https://github.com/leonsuarez24)
