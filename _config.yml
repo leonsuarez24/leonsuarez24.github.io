@@ -82,17 +82,6 @@ author:
   youtube          : # Username
   zhihu            : # Username
 
-# Publication Category - The following the list of publication categories and their headings
-publication_category:
-  books:
-    title: 'Books'
-  manuscripts:
-    title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
-  preprints:
-    title: 'Preprints'
-
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
 breadcrumbs              : false # true, false (default)
@@ -224,12 +213,6 @@ kramdown:
 
 
 # These settings control the types of collections used by the template
-# No collections are built. The Markdown files in _publications/ are kept on disk
-# but Jekyll ignores them; re-add the block below to publish them again.
-# collections:
-#   publications:
-#     output: true
-#     permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
