@@ -17,7 +17,7 @@ Education
 * **M.Sc. in Computer and Systems Engineering**, Universidad Industrial de Santander, Bucaramanga, Colombia — September 2025
 * **B.Sc. in Civil Engineering**, *Cum Laude*, Universidad Industrial de Santander, Bucaramanga, Colombia — April 2023
 
-Research experience
+Experience
 ======
 
 * **January 2026 – July 2026** — *Assistant Researcher, Project 8091*, Universidad Industrial de Santander
@@ -44,26 +44,6 @@ Research experience
 * **June 2023 – July 2023** — *Assistant Researcher, Project 3735*, Universidad Industrial de Santander
   * Designed and implemented a preliminary deep learning model for action recognition.
   * Carried out preliminary training of the deep learning architecture for action recognition.
-
-Research areas
-======
-* Computational and optical imaging — coded aperture and phase mask design, single-pixel imaging, phase retrieval
-* Imaging inverse problems — unrolled algorithms, preconditioning, range–null-space methods
-* Deep learning for imaging — knowledge distillation, diffusion models, implicit neural representations
-* Computational geophysics — seismic data reconstruction, 3D gravimetric inversion
-* Tools: Python, PyTorch, Jupyter, LaTeX
-
-Publications
-======
-{% for category in site.publication_category %}
-{% assign cat_posts = site.publications | where: "category", category[0] | sort: "date" | reverse %}
-{% if cat_posts.size > 0 %}
-<h3>{{ category[1].title }}</h3>
-<ul>
-{% for post in cat_posts %}{% include archive-single-cv.html %}{% endfor %}
-</ul>
-{% endif %}
-{% endfor %}
 
 Languages
 ======

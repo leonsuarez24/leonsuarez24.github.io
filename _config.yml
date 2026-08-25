@@ -224,10 +224,12 @@ kramdown:
 
 
 # These settings control the types of collections used by the template
-collections:
-  publications:
-    output: true
-    permalink: /:collection/:path/
+# No collections are built. The Markdown files in _publications/ are kept on disk
+# but Jekyll ignores them; re-add the block below to publish them again.
+# collections:
+#   publications:
+#     output: true
+#     permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -250,15 +252,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _publications
-  - scope:
-      path: ""
-      type: publications
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: false
 
 
 # Sass/SCSS

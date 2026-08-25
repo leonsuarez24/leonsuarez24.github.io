@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Computational imaging and inverse problems"
+title: "Inverse problems, geosciences and computational imaging"
 author_profile: true
 redirect_from: 
   - /about/
@@ -8,12 +8,6 @@ redirect_from:
 ---
 
 I am a **PhD student in Computer Science** at the [Universidad Industrial de Santander](https://uis.edu.co) (UIS) in Bucaramanga, Colombia, where I work in the [High-Dimensional Signal Processing (HDSP) group](https://www.hdspgroup.com) led by Prof. Henry Arguello.
-
-My work sits at the meeting point of **optics, optimization and deep learning**: I design the sensing side of imaging systems and the algorithms that invert them, so that the two are optimized as one. In practice that means coded apertures and phase masks that a fabrication process can actually produce, reconstruction algorithms that stay faithful to the physics of the measurement, and learned priors — diffusion models, implicit neural representations — that fill in what the measurements cannot see.
-
-I came to this from an unusual direction — my first degree was in **civil engineering**, finished *Cum Laude* — and that background still shows up in my work. A good part of my research is applied to **geophysics**: reconstructing irregularly sampled seismic data, and inverting subsurface density from gravimetric field measurements at the Cerro Machín volcano.
-
-My full publication list, research experience and background are on my [CV](/cv/).
 
 Biography
 ======
@@ -32,4 +26,4 @@ Selected news
 
 Contact
 ======
-The fastest way to reach me is by email at [leonsuarez24@gmail.com](mailto:leonsuarez24@gmail.com). I am also on [Google Scholar](https://scholar.google.com/citations?user=FAT4XIUAAAAJ&hl=en), [LinkedIn](https://www.linkedin.com/in/leon-suarez24/) and [GitHub](https://github.com/leonsuarez24).
+The fastest way to reach me is by email at [leonsuarez24@gmail.com](mailto:leonsuarez24@gmail.com). My CV is [here](/cv/) and as a [PDF](/files/CV_Leon.pdf). I am also on [Google Scholar](https://scholar.google.com/citations?user=FAT4XIUAAAAJ&hl=en), [LinkedIn](https://www.linkedin.com/in/leon-suarez24/) and [GitHub](https://github.com/leonsuarez24).
