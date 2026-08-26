@@ -92,7 +92,11 @@ a:hover {
   background:
     radial-gradient(circle at 5% 12%, var(--ambient-cyan), transparent 34rem),
     radial-gradient(circle at 94% 10%, var(--ambient-pink), transparent 36rem),
+    radial-gradient(circle at 18% 78%, var(--ambient-green), transparent 28rem),
+    radial-gradient(circle at 76% 68%, var(--ambient-yellow), transparent 26rem),
     linear-gradient(160deg, transparent 35%, var(--ambient-violet));
+  background-size: 135% 135%;
+  animation: synth-sky-drift 18s ease-in-out infinite alternate;
 }
 
 .synth-scene::before {
@@ -106,6 +110,7 @@ a:hover {
   opacity: var(--sun-alpha);
   background: linear-gradient(180deg, var(--sun-top), var(--sun-bottom));
   box-shadow: var(--sun-glow);
+  z-index: 1;
   -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 11px, transparent 11px 16px);
           mask-image: repeating-linear-gradient(to bottom, #000 0 11px, transparent 11px 16px);
 }
@@ -124,8 +129,138 @@ a:hover {
   background-size: 62px 48px;
   transform: perspective(420px) rotateX(62deg);
   transform-origin: 50% 100%;
+  z-index: 2;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000);
           mask-image: linear-gradient(to bottom, transparent, #000);
+}
+
+.synth-aurora {
+  position: absolute;
+  inset: -18%;
+  z-index: 0;
+  opacity: var(--aurora-alpha);
+  background:
+    radial-gradient(ellipse at 30% 70%, var(--aurora-green), transparent 28%),
+    radial-gradient(ellipse at 70% 58%, var(--aurora-yellow), transparent 26%);
+  filter: blur(42px);
+  animation: synth-aurora-drift 13s ease-in-out infinite alternate;
+}
+
+.synth-ocean {
+  position: absolute;
+  top: 55%;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  height: 22%;
+  border-top: 2px solid var(--ocean-line);
+  background:
+    repeating-linear-gradient(168deg, transparent 0 17px, var(--ocean-ripple) 18px 19px),
+    linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
+  background-size: 150% 100%, 100% 100%;
+  box-shadow: var(--ocean-glow);
+  animation: synth-ocean-shimmer 9s linear infinite;
+}
+
+.synth-palm {
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  height: min(50vh, 480px);
+  width: auto;
+  opacity: var(--palm-alpha);
+  overflow: visible;
+}
+
+.synth-palm path {
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.synth-palm .palm-trunk { stroke-width: 6; }
+
+.synth-palm--left {
+  left: -0.6rem;
+  color: var(--neon-green);
+  filter: var(--palm-green-glow);
+  transform: rotate(-3deg);
+}
+
+.synth-palm--right {
+  right: -0.6rem;
+  color: var(--neon-yellow);
+  filter: var(--palm-yellow-glow);
+  transform: scaleX(-1) rotate(-3deg);
+}
+
+.synth-car {
+  position: absolute;
+  left: 68%;
+  bottom: 3.5vh;
+  z-index: 4;
+  width: clamp(210px, 28vw, 390px);
+  overflow: visible;
+  opacity: var(--car-alpha);
+  filter: var(--car-glow);
+  transform: translateX(-50%);
+  animation: synth-car-cruise 8s ease-in-out infinite alternate;
+}
+
+.synth-car path,
+.synth-car circle {
+  vector-effect: non-scaling-stroke;
+}
+
+.car-body {
+  stroke: var(--neon-pink);
+  stroke-width: 3;
+  fill: var(--car-body-fill);
+}
+
+.car-glass {
+  stroke: var(--neon-cyan);
+  stroke-width: 2;
+  fill: var(--car-glass-fill);
+}
+
+.car-detail {
+  stroke: var(--neon-purple);
+  stroke-width: 2;
+}
+
+.car-wheel {
+  stroke: var(--neon-green);
+  stroke-width: 4;
+  fill: var(--car-wheel-fill);
+}
+
+.car-hub {
+  stroke: var(--neon-yellow);
+  stroke-width: 2;
+}
+
+.car-light { stroke-width: 2; }
+.car-light--front { stroke: var(--neon-yellow); fill: var(--car-light-yellow); }
+.car-light--rear  { stroke: var(--neon-pink); fill: var(--car-light-pink); }
+
+@keyframes synth-sky-drift {
+  from { background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, 50% 50%; }
+  to   { background-position: 10% 8%, 88% 10%, 16% 82%, 82% 62%, 55% 45%; }
+}
+
+@keyframes synth-aurora-drift {
+  from { transform: translate3d(-3%, 2%, 0) scale(0.96); }
+  to   { transform: translate3d(5%, -4%, 0) scale(1.08); }
+}
+
+@keyframes synth-ocean-shimmer {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 180px 0, 0 0; }
+}
+
+@keyframes synth-car-cruise {
+  from { transform: translateX(-54%) translateY(1px); }
+  to   { transform: translateX(-46%) translateY(-3px); }
 }
 
 .masthead { z-index: 3; }
@@ -138,7 +273,7 @@ a:hover {
 .sidebar {
   background:
     linear-gradient(var(--panel-bg), var(--panel-bg)) padding-box,
-    linear-gradient(135deg, var(--panel-edge-cyan), transparent 34%, transparent 68%, var(--panel-edge-pink)) border-box;
+    linear-gradient(135deg, var(--panel-edge-cyan), var(--neon-green) 22%, transparent 40%, transparent 60%, var(--neon-yellow) 80%, var(--panel-edge-pink)) border-box;
   border: 2px solid transparent;
   border-radius: 2px;
   box-shadow: var(--panel-shadow);
@@ -154,7 +289,54 @@ a:hover {
 }
 
 .sidebar {
-  padding: 1rem;
+  min-width: 0;
+  padding: 1rem 0.85rem;
+  overflow-x: hidden;
+}
+
+.sidebar .author__avatar img {
+  display: block;
+  width: min(100%, 175px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sidebar .author__content,
+.sidebar .author__urls-wrapper,
+.sidebar .author__urls {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sidebar .author__name {
+  max-width: 100%;
+  font-family: "Space Grotesk", $sans-serif;
+  font-size: clamp(0.96rem, 1.15vw, 1.12rem);
+  line-height: 1.25;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  color: var(--author-name-color);
+  text-shadow: var(--glow-pink-soft);
+}
+
+.sidebar .author__bio {
+  max-width: 100%;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.sidebar .author__urls li {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.sidebar .author__urls a {
+  max-width: 100%;
+  padding-right: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .author__avatar img {
@@ -181,7 +363,7 @@ a:hover {
   width: min(420px, 55vw);
   height: 2px;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-purple), var(--neon-pink), transparent);
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-green), var(--neon-yellow), var(--neon-pink), transparent);
   box-shadow: var(--nav-line-glow);
 }
 
@@ -281,7 +463,7 @@ a:hover {
   width: 3rem;
   height: 2px;
   margin-top: 0.45em;
-  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green), var(--neon-yellow), var(--neon-purple));
   box-shadow: var(--heading-line-glow);
 }
 
@@ -394,6 +576,15 @@ blockquote {
 
   .synth-scene::after { opacity: var(--grid-alpha-mobile); }
 
+  .synth-palm { height: 34vh; }
+  .synth-palm--right { display: none; }
+
+  .synth-car {
+    left: 75%;
+    bottom: 2vh;
+    width: 210px;
+  }
+
   .page,
   .archive {
     border-right: 0;
@@ -406,6 +597,13 @@ blockquote {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .synth-scene,
+  .synth-aurora,
+  .synth-ocean,
+  .synth-car,
   a,
-  .btn-pill { transition: none; }
+  .btn-pill {
+    animation: none;
+    transition: none;
+  }
 }

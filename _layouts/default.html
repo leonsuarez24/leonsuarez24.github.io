@@ -13,7 +13,38 @@ layout: compress
 
   <body>
 
-    <div class="synth-scene" aria-hidden="true"></div>
+    <div class="synth-scene" aria-hidden="true">
+      <div class="synth-aurora"></div>
+      <div class="synth-ocean"></div>
+
+      <svg class="synth-palm synth-palm--left" viewBox="0 0 140 260" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="bevel">
+          <path class="palm-trunk" d="M57 260C65 218 62 172 73 91"/>
+          <path d="M73 91C49 63 22 58 4 69M73 91C51 49 38 27 18 17M73 91C70 49 76 23 91 4M73 91C94 54 116 43 137 46M73 91C104 75 124 76 139 89M73 91C47 82 23 86 8 104"/>
+        </g>
+      </svg>
+
+      <svg class="synth-palm synth-palm--right" viewBox="0 0 140 260" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="bevel">
+          <path class="palm-trunk" d="M57 260C65 218 62 172 73 91"/>
+          <path d="M73 91C49 63 22 58 4 69M73 91C51 49 38 27 18 17M73 91C70 49 76 23 91 4M73 91C94 54 116 43 137 46M73 91C104 75 124 76 139 89M73 91C47 82 23 86 8 104"/>
+        </g>
+      </svg>
+
+      <svg class="synth-car" viewBox="0 0 250 105" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <g fill="none" stroke-linecap="square" stroke-linejoin="bevel">
+          <path class="car-body" d="M13 73L25 55L72 46L105 18H169L205 47L232 56L240 76H13Z"/>
+          <path class="car-glass" d="M84 45L111 24H142V45ZM150 24H166L194 46H150Z"/>
+          <path class="car-detail" d="M22 65H66M199 57L230 62M109 54H171M113 62H137"/>
+          <path class="car-light car-light--front" d="M222 58H236L240 67H225Z"/>
+          <path class="car-light car-light--rear" d="M20 57H35V65H16Z"/>
+          <circle class="car-wheel" cx="65" cy="78" r="18"/>
+          <circle class="car-wheel" cx="190" cy="78" r="18"/>
+          <circle class="car-hub" cx="65" cy="78" r="7"/>
+          <circle class="car-hub" cx="190" cy="78" r="7"/>
+        </g>
+      </svg>
+    </div>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
