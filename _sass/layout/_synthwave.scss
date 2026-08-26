@@ -1,0 +1,371 @@
+/* ==========================================================================
+   SYNTHWAVE PERSONALITY LAYER
+   Neon, pixels, palms and a sunset. Loaded last so it wins.
+   ========================================================================== */
+
+/* ---------- Typography ------------------------------------------------- */
+
+body {
+  font-family: "Space Grotesk", $sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.page__title,
+.archive__item-title,
+.author__name {
+  font-family: "Orbitron", $sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.page__title {
+  font-weight: 900;
+  text-shadow: var(--glow);
+}
+
+h1, h2 { text-shadow: var(--glow); }
+h3     { text-shadow: var(--glow-soft); }
+
+/* Neon rules between sections */
+h1 + hr, h2 + hr, hr {
+  height: 2px;
+  border: 0;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple));
+  opacity: 0.85;
+}
+
+a {
+  transition: $global-transition;
+}
+a:hover {
+  text-shadow: var(--glow-soft);
+}
+
+/* ---------- The scene: sunset, sea, grid, palms ------------------------ */
+
+.synth-scene {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: var(--scene-alpha);
+}
+
+/* content must sit above the scene */
+.masthead { position: relative; z-index: 3; }
+#main     { position: relative; z-index: 2; }
+
+/* sky */
+.synth-sky {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 62%;
+  background:
+    linear-gradient(180deg,
+      rgba(13, 2, 33, 0)   0%,
+      rgba(74, 20, 110, 0.55) 45%,
+      rgba(255, 42, 109, 0.35) 78%,
+      rgba(255, 140, 66, 0.30) 100%);
+}
+
+/* the sun */
+.synth-sun {
+  position: absolute;
+  left: 50%;
+  top: 12vh;
+  width: 40vmin;
+  height: 40vmin;
+  max-width: 360px;
+  max-height: 360px;
+  margin-left: -20vmin;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffd319 0%, #ff8c42 46%, #ff2a6d 100%);
+  filter: blur(0.2px) drop-shadow(0 0 70px rgba(255, 42, 109, 0.55));
+  opacity: 0.9;
+}
+
+/* horizontal slats across the lower half of the sun */
+.synth-sun::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 52%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 7px,
+    var(--global-bg-color) 7px 13px);
+}
+
+/* sea: a band of horizon glow */
+.synth-sea {
+  position: absolute;
+  left: 0; right: 0;
+  top: 58%;
+  height: 4%;
+  background: linear-gradient(180deg, rgba(255, 211, 25, 0.55), rgba(5, 217, 232, 0.12));
+  filter: blur(6px);
+}
+
+/* perspective grid floor */
+.synth-grid {
+  position: absolute;
+  left: -60%; right: -60%;
+  bottom: -14vh;
+  height: 58vh;
+  background-image:
+    repeating-linear-gradient(to right,  rgba(5, 217, 232, 0.55) 0 2px, transparent 2px 84px),
+    repeating-linear-gradient(to bottom, rgba(255, 42, 109, 0.42) 0 2px, transparent 2px 84px);
+  transform: perspective(320px) rotateX(72deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 45%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 45%);
+}
+
+/* palms */
+.synth-palm {
+  position: absolute;
+  bottom: 0;
+  height: 54vh;
+  max-height: 460px;
+  width: auto;
+}
+.synth-palm--l { left: -1vw; }
+.synth-palm--r { right: -1vw; transform: scaleX(-1); height: 44vh; }
+.synth-palm path,
+.synth-palm circle { fill: #1b0630; }
+html[data-theme="dark"] .synth-palm path,
+html[data-theme="dark"] .synth-palm circle { fill: #08010f; }
+
+@media screen and (max-width: 600px) {
+  .synth-palm { height: 32vh; }
+  .synth-palm--r { display: none; }
+}
+
+/* CRT scanlines */
+.synth-scan {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.16) 0 1px,
+    transparent 1px 3px);
+  opacity: 0.5;
+}
+
+/* Keep the scene from fighting the text on small screens */
+@media screen and (max-width: 600px) {
+  .synth-scene { opacity: 0.45; }
+}
+
+/* ---------- Readable panels over the scene ----------------------------- */
+
+.page,
+.archive,
+.sidebar {
+  background: var(--panel-bg);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+}
+
+.page,
+.archive {
+  border: 1px solid var(--panel-border);
+  padding: 1.25em 1.5em 2em;
+  box-shadow: 0 0 24px rgba(5, 217, 232, 0.10);
+}
+
+.sidebar {
+  padding: 0.75em;
+  border: 1px solid var(--panel-border);
+}
+
+/* Neon frame on the portrait */
+.author__avatar img {
+  border: 2px solid var(--neon-cyan);
+  border-radius: 0;
+  box-shadow: 0 0 0 2px var(--neon-pink), 0 0 18px rgba(5, 217, 232, 0.55);
+}
+
+/* ---------- Masthead --------------------------------------------------- */
+
+.masthead {
+  background: var(--panel-bg);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple)) 1;
+}
+
+.masthead__menu-item--lg a {
+  font-family: "Press Start 2P", $sans-serif;
+  font-size: 0.72em;
+  letter-spacing: 0.02em;
+  text-shadow: var(--glow);
+}
+
+.greedy-nav a {
+  font-family: "Orbitron", $sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85em;
+}
+
+.greedy-nav {
+  background: transparent;
+}
+
+/* ---------- Retro pixel buttons ---------------------------------------- */
+
+.btn-pill {
+  display: inline-block;
+  margin: 0 0.4em 0.4em 0;
+  padding: 0.5em 0.9em;
+  font-family: "Press Start 2P", $sans-serif;
+  font-size: 0.58em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--neon-cyan);
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 0;
+  box-shadow: 3px 3px 0 var(--neon-purple);
+  cursor: pointer;
+  transition: none;
+}
+.btn-pill:hover,
+.btn-pill:focus {
+  color: var(--global-bg-color);
+  background: var(--neon-cyan);
+  box-shadow: 3px 3px 0 var(--neon-pink);
+  text-decoration: none;
+  transform: translate(1px, 1px);
+}
+.btn-pill:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--neon-pink);
+}
+.btn-pill.btn-bib {
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+  box-shadow: 3px 3px 0 var(--neon-cyan);
+}
+.btn-pill.btn-bib:hover,
+.btn-pill.btn-bib:focus {
+  color: var(--global-bg-color);
+  background: var(--neon-pink);
+}
+
+/* ---------- Publication list ------------------------------------------- */
+
+.pub-heading {
+  margin-top: 1.6em;
+  padding-bottom: 0.3em;
+  font-size: $type-size-4;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--neon-pink);
+}
+
+.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: pub;
+}
+
+.pub-entry {
+  position: relative;
+  margin: 0;
+  padding: 1em 0 0.9em 2.4em;
+  border-bottom: 1px dashed var(--panel-border);
+  counter-increment: pub;
+}
+.pub-entry:last-child { border-bottom: 0; }
+
+.pub-entry::before {
+  content: counter(pub, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.15em;
+  font-family: "Press Start 2P", $sans-serif;
+  font-size: 0.6em;
+  color: var(--neon-purple);
+}
+
+.pub-cite {
+  margin: 0 0 0.6em;
+  line-height: 1.5;
+}
+.pub-cite strong {
+  color: var(--neon-pink);
+  text-shadow: var(--glow-soft);
+}
+
+.pub-actions {
+  margin: 0;
+  line-height: 1;
+}
+
+.pub-bib {
+  position: relative;
+  margin-top: 0.7em;
+}
+.pub-bib[hidden] { display: none; }
+
+.pub-bib pre {
+  margin: 0;
+  padding: 1.1em 1em 1em;
+  overflow-x: auto;
+  font-family: $monospace;
+  font-size: 0.78em;
+  line-height: 1.5;
+  color: var(--global-text-color);
+  background: var(--global-code-background-color);
+  border: 2px solid var(--neon-purple);
+  border-radius: 0;
+  box-shadow: inset 0 0 24px rgba(123, 47, 247, 0.18);
+}
+
+.pub-copy {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  padding: 0.45em 0.7em;
+  font-family: "Press Start 2P", $sans-serif;
+  font-size: 0.52em;
+  text-transform: uppercase;
+  color: var(--neon-yellow);
+  background: var(--global-bg-color);
+  border: 2px solid var(--neon-yellow);
+  border-radius: 0;
+  cursor: pointer;
+}
+.pub-copy:hover {
+  color: var(--global-bg-color);
+  background: var(--neon-yellow);
+}
+.pub-copy.copied {
+  color: var(--global-bg-color);
+  background: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+}
+
+/* ---------- Odds and ends ---------------------------------------------- */
+
+blockquote {
+  border-left: 4px solid var(--neon-pink);
+}
+
+::selection {
+  background: var(--neon-pink);
+  color: #fff;
+}
+
+/* Respect users who don't want motion / heavy decoration */
+@media (prefers-reduced-motion: reduce) {
+  .btn-pill { transition: none; }
+  .btn-pill:hover { transform: none; }
+}

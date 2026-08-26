@@ -1,0 +1,74 @@
+/* ==========================================================================
+   SYNTHWAVE THEME - LIGHT VERSION ("Miami day")
+   Hot magenta + ocean cyan on a warm sunset-cream ground.
+   ========================================================================== */
+/* Color codes used for the theme */
+$primary-color              : #ff2a6d;
+$dark-primary-color         : #c2185b;
+$darker-primary-color       : #8e0f42;
+$light-primary-color        : #ff7ba4;
+$lighter-primary-color      : #ffe3ed;
+$background                 : #fff0f6;
+$background-light           : #ffffff;
+$background-lighter         : #fff7fb;
+$text                       : #2b1b45;
+$text-muted                 : #6b5a86;
+$link                       : #c2185b;
+$link-dark                  : #8e0f42;
+$link-light                 : #e0508a;
+$footer                     : #ff2a6d;
+$border                     : #f4c9dd;
+$border-dark                : #e79ec2;
+
+/* Color codes used for the site */
+$danger-color               : #ff2a6d;
+$info-color                 : #00b8c4;
+$notice-color               : #ff8c42;
+$success-color              : #00c48c;
+$warning-color              : #ffb703;
+
+/* Other basic settings for the template */
+$border-radius              : 0px;
+$box-shadow                 : 3px 3px 0 rgba(43, 27, 69, 0.18);
+$global-transition          : all 0.15s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Light theme for the site */
+:root {
+  --global-base-color                 : #{$primary-color};
+  --global-bg-color                   : #{$background};
+  --global-footer-bg-color            : #{$footer};
+  --global-border-color               : #{$border};
+  --global-dark-border-color          : #{$border-dark};
+  --global-code-background-color      : #{$background-light};
+  --global-code-text-color            : #{$darker-primary-color};
+  --global-fig-caption-color          : #{$text-muted};
+  --global-link-color                 : #{$link};
+  --global-link-color-hover           : #{$link-dark};
+  --global-link-color-visited         : #{$link-light};
+  --global-masthead-link-color        : #{$text};
+  --global-masthead-link-color-hover  : #{$primary-color};
+  --global-text-color                 : #{$text};
+  --global-text-color-light           : #{$text-muted};
+  --global-thead-color                : #{$lighter-primary-color};
+
+  /* personality layer */
+  --neon-cyan   : #00b8c4;
+  --neon-pink   : #ff2a6d;
+  --neon-purple : #7b2ff7;
+  --neon-yellow : #ffb703;
+  --neon-orange : #ff6b35;
+  --panel-bg    : rgba(255, 255, 255, 0.82);
+  --panel-border: #f4c9dd;
+  --glow        : none;
+  --glow-soft   : none;
+  --scene-alpha : 0.30;
+}
+
+footer {
+  color: #{$text};
+}

@@ -3,4 +3,61 @@
 <!-- Support for MathJax -->
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
 
+<!-- Publication BibTeX: expand + copy to clipboard -->
+<script>
+(function () {
+  function flash(btn) {
+    var original = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', original);
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  }
+
+  function legacyCopy(text, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); flash(btn); } catch (err) { /* nothing we can do */ }
+    document.body.removeChild(ta);
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!e.target || !e.target.closest) { return; }
+
+    var toggle = e.target.closest('.btn-bib');
+    if (toggle) {
+      var panel = document.getElementById(toggle.getAttribute('data-bib'));
+      if (!panel) { return; }
+      var isOpen = !panel.hasAttribute('hidden');
+      if (isOpen) { panel.setAttribute('hidden', ''); } else { panel.removeAttribute('hidden'); }
+      toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      return;
+    }
+
+    var copy = e.target.closest('.pub-copy');
+    if (copy) {
+      var pre = document.getElementById(copy.getAttribute('data-copy'));
+      if (!pre) { return; }
+      var text = pre.textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { flash(copy); },
+          function () { legacyCopy(text, copy); }
+        );
+      } else {
+        legacyCopy(text, copy);
+      }
+    }
+  });
+})();
+</script>
+
 <!-- end custom footer snippets -->
