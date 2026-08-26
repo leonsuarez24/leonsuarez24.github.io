@@ -8,15 +8,38 @@
 body {
   font-family: "Space Grotesk", $sans-serif;
   line-height: 1.65;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 2v22l6-6 4 10 5-2-4-10h9z' fill='%23080712' stroke='%2357e8f2' stroke-width='2' stroke-linejoin='miter'/%3E%3Cpath d='M5 3v16l5-5h8z' fill='%23ff4fa3' opacity='.72'/%3E%3C/svg%3E") 4 2, auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: var(--scanline-alpha);
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.26) 0 1px,
+    transparent 1px 4px
+  );
+}
+
+a,
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 2h6v10h3V8h4v4h3V9h4v12h-3v5H12v-3H8z' fill='%23080712' stroke='%23ff4fa3' stroke-width='2' stroke-linejoin='miter'/%3E%3Cpath d='M10 4h2v12h-2zm5 10h2v6h-2zm5 0h2v6h-2zm5-1h1v7h-1z' fill='%2357e8f2'/%3E%3C/svg%3E") 8 2, pointer;
 }
 
 h1, h2, h3, h4, h5, h6,
 .page__title,
 .archive__item-title,
 .author__name {
-  font-family: "Space Grotesk", $sans-serif;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.015em;
 }
 
 .page__title {
@@ -32,7 +55,10 @@ h2 {
 }
 
 h2 {
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--heading-rule);
   border-bottom-color: var(--heading-rule);
+  box-shadow: var(--heading-border-glow);
 }
 
 h3 {
@@ -113,9 +139,11 @@ a:hover {
   background:
     linear-gradient(var(--panel-bg), var(--panel-bg)) padding-box,
     linear-gradient(135deg, var(--panel-edge-cyan), transparent 34%, transparent 68%, var(--panel-edge-pink)) border-box;
-  border: 1px solid transparent;
-  border-radius: 14px;
+  border: 2px solid transparent;
+  border-radius: 2px;
   box-shadow: var(--panel-shadow);
+  outline: 1px solid var(--panel-outline);
+  outline-offset: 3px;
   -webkit-backdrop-filter: blur(16px) saturate(125%);
           backdrop-filter: blur(16px) saturate(125%);
 }
@@ -131,7 +159,7 @@ a:hover {
 
 .author__avatar img {
   border: 2px solid var(--neon-cyan);
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: var(--avatar-glow);
 }
 
@@ -141,7 +169,7 @@ a:hover {
   background: var(--masthead-bg);
   -webkit-backdrop-filter: blur(14px);
           backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--masthead-border);
+  border-bottom: 2px solid var(--masthead-border);
   box-shadow: var(--masthead-glow);
 }
 
@@ -149,7 +177,7 @@ a:hover {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -1px;
+  bottom: -2px;
   width: min(420px, 55vw);
   height: 2px;
   transform: translateX(-50%);
@@ -189,20 +217,21 @@ a:hover {
   display: inline-flex;
   align-items: center;
   margin: 0 0.45em 0.45em 0;
-  padding: 0.45em 0.78em;
-  font-family: "Space Grotesk", $sans-serif;
-  font-size: 0.76em;
-  font-weight: 600;
+  padding: 0.58em 0.82em;
+  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-size: 0.68em;
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--button-text);
   background: var(--button-bg);
-  border: 1px solid var(--button-border);
-  border-radius: 999px;
+  border: 2px solid var(--button-border);
+  border-radius: 0;
   box-shadow: var(--button-glow);
   cursor: pointer;
-  transition: color 0.16s ease, background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+  transition: color 0.12s ease, background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
 }
 
 .btn-pill:hover,
@@ -212,7 +241,7 @@ a:hover {
   border-color: var(--button-hover-bg);
   box-shadow: var(--button-glow-hover);
   text-decoration: none;
-  transform: translateY(-1px);
+  transform: translate(-2px, -2px);
 }
 
 .btn-pill:focus-visible,
@@ -317,8 +346,8 @@ a:hover {
   line-height: 1.55;
   color: var(--global-code-text-color);
   background: var(--global-code-background-color);
-  border: 1px solid var(--panel-border);
-  border-radius: 10px;
+  border: 2px solid var(--code-border);
+  border-radius: 0;
   box-shadow: var(--code-glow);
 }
 
@@ -327,14 +356,15 @@ a:hover {
   top: 0.55em;
   right: 0.55em;
   padding: 0.4em 0.65em;
-  font-family: "Space Grotesk", $sans-serif;
-  font-size: 0.7em;
-  font-weight: 600;
+  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-size: 0.62em;
+  font-weight: 700;
   line-height: 1;
   color: var(--button-secondary-text);
   background: var(--panel-solid);
-  border: 1px solid var(--button-secondary-border);
-  border-radius: 6px;
+  border: 2px solid var(--button-secondary-border);
+  border-radius: 0;
+  box-shadow: var(--button-secondary-glow);
   cursor: pointer;
 }
 
@@ -369,6 +399,7 @@ blockquote {
     border-right: 0;
     border-left: 0;
     border-radius: 0;
+    outline: 0;
   }
 
   .pub-entry { padding-left: 1.9em; }
