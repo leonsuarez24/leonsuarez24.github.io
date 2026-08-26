@@ -1,36 +1,36 @@
 /* ==========================================================================
-   SYNTHWAVE THEME - LIGHT VERSION ("Miami day")
-   Hot magenta + ocean cyan on a warm sunset-cream ground.
+   SYNTHWAVE THEME - LIGHT VERSION
+   Calm editorial surfaces with restrained cyan and violet accents.
    ========================================================================== */
 /* Color codes used for the theme */
-$primary-color              : #ff2a6d;
-$dark-primary-color         : #c2185b;
-$darker-primary-color       : #8e0f42;
-$light-primary-color        : #ff7ba4;
-$lighter-primary-color      : #ffe3ed;
-$background                 : #fff0f6;
+$primary-color              : #247f91;
+$dark-primary-color         : #176779;
+$darker-primary-color       : #105364;
+$light-primary-color        : #65aab7;
+$lighter-primary-color      : #e9f3f5;
+$background                 : #f6f7fb;
 $background-light           : #ffffff;
-$background-lighter         : #fff7fb;
-$text                       : #2b1b45;
-$text-muted                 : #6b5a86;
-$link                       : #c2185b;
-$link-dark                  : #8e0f42;
-$link-light                 : #e0508a;
-$footer                     : #ff2a6d;
-$border                     : #f4c9dd;
-$border-dark                : #e79ec2;
+$background-lighter         : #eef1f7;
+$text                       : #232638;
+$text-muted                 : #656d82;
+$link                       : #196f82;
+$link-dark                  : #10596a;
+$link-light                 : #6f58b4;
+$footer                     : #171a28;
+$border                     : #dfe3ed;
+$border-dark                : #cdd3e0;
 
 /* Color codes used for the site */
-$danger-color               : #ff2a6d;
-$info-color                 : #00b8c4;
-$notice-color               : #ff8c42;
-$success-color              : #00c48c;
-$warning-color              : #ffb703;
+$danger-color               : #c95174;
+$info-color                 : #247f91;
+$notice-color               : #bb754d;
+$success-color              : #398d70;
+$warning-color              : #ad7818;
 
 /* Other basic settings for the template */
-$border-radius              : 0px;
-$box-shadow                 : 3px 3px 0 rgba(43, 27, 69, 0.18);
-$global-transition          : all 0.15s ease-in-out;
+$border-radius              : 10px;
+$box-shadow                 : 0 12px 30px rgba(41, 46, 70, 0.09);
+$global-transition          : all 0.16s ease;
 $masthead-height            : 70px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
@@ -56,19 +56,60 @@ $sidebar-screen-min-width   : 1024px;
   --global-text-color-light           : #{$text-muted};
   --global-thead-color                : #{$lighter-primary-color};
 
-  /* personality layer */
-  --neon-cyan   : #00b8c4;
-  --neon-pink   : #ff2a6d;
-  --neon-purple : #7b2ff7;
-  --neon-yellow : #ffb703;
-  --neon-orange : #ff6b35;
-  --panel-bg    : rgba(255, 255, 255, 0.82);
-  --panel-border: #f4c9dd;
-  --glow        : none;
-  --glow-soft   : none;
-  --scene-alpha : 0.30;
+  /* neon synthwave layer: softer for the optional light mode */
+  --neon-cyan               : #14859c;
+  --neon-pink               : #d63f82;
+  --neon-purple             : #7056d6;
+  --neon-yellow             : #ad7818;
+  --heading-rule            : rgba(20, 133, 156, 0.22);
+  --heading-accent          : #6651b5;
+  --glow-heading            : 0 0 16px rgba(112, 86, 214, 0.14);
+  --glow-link               : 0 0 9px rgba(20, 133, 156, 0.26);
+  --glow-cyan               : 0 0 12px rgba(20, 133, 156, 0.24);
+  --glow-cyan-soft          : 0 0 8px rgba(20, 133, 156, 0.22);
+  --glow-pink-soft          : 0 0 8px rgba(214, 63, 130, 0.20);
+  --panel-bg                : rgba(255, 255, 255, 0.92);
+  --panel-solid             : #ffffff;
+  --panel-border            : rgba(65, 75, 105, 0.15);
+  --panel-edge-cyan         : rgba(20, 133, 156, 0.48);
+  --panel-edge-pink         : rgba(214, 63, 130, 0.38);
+  --panel-shadow            : 0 16px 42px rgba(41, 46, 70, 0.10), 0 0 24px rgba(20, 133, 156, 0.07), 0 0 34px rgba(214, 63, 130, 0.05);
+  --avatar-glow             : 0 0 0 3px rgba(214, 63, 130, 0.38), 0 0 18px rgba(20, 133, 156, 0.30);
+  --masthead-bg             : rgba(246, 247, 251, 0.88);
+  --masthead-border         : rgba(20, 133, 156, 0.24);
+  --masthead-glow           : 0 6px 24px rgba(20, 133, 156, 0.07);
+  --nav-line-glow           : 0 0 7px rgba(20, 133, 156, 0.34), 0 0 14px rgba(214, 63, 130, 0.18);
+  --ambient-cyan            : rgba(20, 164, 188, 0.12);
+  --ambient-pink            : rgba(230, 70, 143, 0.11);
+  --ambient-violet          : rgba(112, 86, 214, 0.08);
+  --grid-color              : rgba(20, 133, 156, 0.16);
+  --grid-alpha              : 0.52;
+  --grid-alpha-mobile       : 0.25;
+  --sun-alpha               : 0.25;
+  --sun-alpha-mobile        : 0.16;
+  --sun-top                 : #f7b84a;
+  --sun-bottom              : #e94891;
+  --sun-glow                : 0 0 30px rgba(233, 72, 145, 0.20), 0 0 70px rgba(233, 72, 145, 0.12);
+  --highlight-text          : #aa2f66;
+  --button-text             : #176779;
+  --button-bg               : rgba(33, 134, 155, 0.06);
+  --button-border           : rgba(20, 133, 156, 0.38);
+  --button-glow             : 0 0 8px rgba(20, 133, 156, 0.10);
+  --button-glow-hover       : 0 0 10px rgba(20, 133, 156, 0.34), 0 0 20px rgba(20, 133, 156, 0.16);
+  --button-secondary-text   : #5f4fae;
+  --button-secondary-bg     : rgba(110, 91, 197, 0.06);
+  --button-secondary-border : rgba(112, 86, 214, 0.36);
+  --button-secondary-glow   : 0 0 8px rgba(112, 86, 214, 0.10);
+  --button-secondary-glow-hover: 0 0 10px rgba(112, 86, 214, 0.34), 0 0 20px rgba(214, 63, 130, 0.14);
+  --button-hover-text       : #ffffff;
+  --button-hover-bg         : #14859c;
+  --heading-line-glow       : 0 0 7px rgba(20, 133, 156, 0.30), 0 0 14px rgba(112, 86, 214, 0.16);
+  --code-glow               : inset 0 0 20px rgba(112, 86, 214, 0.05), 0 0 12px rgba(20, 133, 156, 0.05);
+  --focus-ring              : rgba(36, 127, 145, 0.28);
+  --selection-text          : #ffffff;
+  --selection-bg            : #8c4770;
 }
 
 footer {
-  color: #{$text};
+  color: #f0f2f8;
 }

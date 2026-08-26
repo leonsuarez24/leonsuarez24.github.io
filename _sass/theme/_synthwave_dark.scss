@@ -1,32 +1,32 @@
 /* ==========================================================================
-   SYNTHWAVE THEME - DARK VERSION ("Neon night")
-   Deep violet night, cyan neon, magenta sunset.
+   SYNTHWAVE THEME - DARK VERSION
+   Neutral midnight surfaces with restrained cyan and violet accents.
    ========================================================================== */
 /* Color codes used for the theme */
-$primary-color              : #05d9e8;
-$background                 : #0d0221;
-$background-light           : #190b2e;
-$background-lighter         : #241040;
-$text                       : #eaf6ff;
-$text-muted                 : #b39ddb;
-$link                       : #05d9e8;
-$link-dark                  : #6ef7ff;
-$link-light                 : #ff5c8d;
-$footer                     : #08010f;
-$border                     : #3b1f5e;
-$border-light               : #5a2f8c;
+$primary-color              : #67cfdf;
+$background                 : #080712;
+$background-light           : #110d20;
+$background-lighter         : #1b1530;
+$text                       : #e9ecf5;
+$text-muted                 : #a2a9bb;
+$link                       : #67cfdf;
+$link-dark                  : #9be7f1;
+$link-light                 : #b7a0ed;
+$footer                     : #06050d;
+$border                     : #30234a;
+$border-light               : #46306c;
 
 /* Color codes used for the site */
-$danger-color               : #ff2a6d;
-$info-color                 : #05d9e8;
-$notice-color               : #ff8c42;
-$success-color              : #00ffc8;
-$warning-color              : #ffd319;
+$danger-color               : #e66a8f;
+$info-color                 : #67cfdf;
+$notice-color               : #d99568;
+$success-color              : #65c7a2;
+$warning-color              : #dfba68;
 
 /* Other basic settings for the template */
-$border-radius              : 0px;
-$box-shadow                 : 3px 3px 0 rgba(5, 217, 232, 0.25);
-$global-transition          : all 0.15s ease-in-out;
+$border-radius              : 10px;
+$box-shadow                 : 0 12px 30px rgba(0, 0, 0, 0.16);
+$global-transition          : all 0.16s ease;
 $masthead-height            : 70px;
 $navicon-width              : 28px;
 $navicon-height             : 4px;
@@ -52,17 +52,58 @@ html[data-theme="dark"] {
   --global-text-color-light           : #{$text-muted};
   --global-thead-color                : #{$background-lighter};
 
-  /* personality layer */
-  --neon-cyan   : #05d9e8;
-  --neon-pink   : #ff2a6d;
-  --neon-purple : #7b2ff7;
-  --neon-yellow : #ffd319;
-  --neon-orange : #ff6b35;
-  --panel-bg    : rgba(13, 2, 33, 0.72);
-  --panel-border: #3b1f5e;
-  --glow        : 0 0 6px rgba(5, 217, 232, 0.55), 0 0 20px rgba(5, 217, 232, 0.22);
-  --glow-soft   : 0 0 5px rgba(255, 42, 109, 0.45);
-  --scene-alpha : 1;
+  /* neon synthwave layer */
+  --neon-cyan               : #57e8f2;
+  --neon-pink               : #ff4fa3;
+  --neon-purple             : #9b7bff;
+  --neon-yellow             : #dfba68;
+  --heading-rule            : rgba(87, 232, 242, 0.24);
+  --heading-accent          : #c5b4ff;
+  --glow-heading            : 0 0 18px rgba(155, 123, 255, 0.26);
+  --glow-link               : 0 0 10px rgba(87, 232, 242, 0.55);
+  --glow-cyan               : 0 0 7px rgba(87, 232, 242, 0.72), 0 0 24px rgba(87, 232, 242, 0.28);
+  --glow-cyan-soft          : 0 0 9px rgba(87, 232, 242, 0.48);
+  --glow-pink-soft          : 0 0 9px rgba(255, 79, 163, 0.42);
+  --panel-bg                : rgba(10, 9, 25, 0.82);
+  --panel-solid             : #{$background-light};
+  --panel-border            : rgba(158, 168, 201, 0.18);
+  --panel-edge-cyan         : rgba(87, 232, 242, 0.68);
+  --panel-edge-pink         : rgba(255, 79, 163, 0.52);
+  --panel-shadow            : 0 18px 55px rgba(0, 0, 0, 0.32), 0 0 28px rgba(87, 232, 242, 0.09), 0 0 46px rgba(255, 79, 163, 0.06);
+  --avatar-glow             : 0 0 0 3px rgba(255, 79, 163, 0.62), 0 0 18px rgba(87, 232, 242, 0.65), 0 0 42px rgba(155, 123, 255, 0.24);
+  --masthead-bg             : rgba(8, 7, 18, 0.84);
+  --masthead-border         : rgba(87, 232, 242, 0.30);
+  --masthead-glow           : 0 6px 28px rgba(87, 232, 242, 0.08), 0 4px 42px rgba(255, 79, 163, 0.05);
+  --nav-line-glow           : 0 0 8px rgba(87, 232, 242, 0.75), 0 0 18px rgba(255, 79, 163, 0.42);
+  --ambient-cyan            : rgba(22, 206, 226, 0.18);
+  --ambient-pink            : rgba(255, 42, 138, 0.17);
+  --ambient-violet          : rgba(122, 74, 235, 0.14);
+  --grid-color              : rgba(87, 232, 242, 0.24);
+  --grid-alpha              : 0.72;
+  --grid-alpha-mobile       : 0.40;
+  --sun-alpha               : 0.72;
+  --sun-alpha-mobile        : 0.48;
+  --sun-top                 : #ffd166;
+  --sun-bottom              : #ff3197;
+  --sun-glow                : 0 0 32px rgba(255, 49, 151, 0.48), 0 0 90px rgba(255, 49, 151, 0.30);
+  --highlight-text          : #ff83bd;
+  --button-text             : #c9f2f6;
+  --button-bg               : rgba(87, 232, 242, 0.10);
+  --button-border           : rgba(87, 232, 242, 0.58);
+  --button-glow             : inset 0 0 12px rgba(87, 232, 242, 0.08), 0 0 9px rgba(87, 232, 242, 0.18);
+  --button-glow-hover       : 0 0 10px rgba(87, 232, 242, 0.72), 0 0 24px rgba(87, 232, 242, 0.35);
+  --button-secondary-text   : #d9d1ff;
+  --button-secondary-bg     : rgba(155, 123, 255, 0.10);
+  --button-secondary-border : rgba(155, 123, 255, 0.55);
+  --button-secondary-glow   : inset 0 0 12px rgba(155, 123, 255, 0.08), 0 0 9px rgba(155, 123, 255, 0.16);
+  --button-secondary-glow-hover: 0 0 10px rgba(155, 123, 255, 0.72), 0 0 24px rgba(255, 79, 163, 0.28);
+  --button-hover-text       : #080712;
+  --button-hover-bg         : #57e8f2;
+  --heading-line-glow       : 0 0 8px rgba(87, 232, 242, 0.62), 0 0 16px rgba(155, 123, 255, 0.32);
+  --code-glow               : inset 0 0 24px rgba(155, 123, 255, 0.08), 0 0 16px rgba(87, 232, 242, 0.07);
+  --focus-ring              : rgba(87, 232, 242, 0.38);
+  --selection-text          : #ffffff;
+  --selection-bg            : #9e4778;
 }
 
 html[data-theme="dark"] {
