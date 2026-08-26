@@ -144,7 +144,7 @@ Publications
 <p class="pub-cite">R. Jacome, R. Gualdr&oacute;n-Hurtado, <strong>L. Suarez-Rodriguez</strong> and H. Arguello, &ldquo;NPN: Non-Linear Projections of the Null-Space for Imaging Inverse Problems,&rdquo; <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2025.</p>
 <p class="pub-actions"><a class="btn-pill" href="https://arxiv.org/abs/2510.01608" target="_blank" rel="noopener">arXiv</a><button class="btn-pill btn-bib" type="button" data-bib="bib-jacome2025npn" aria-expanded="false" aria-controls="bib-jacome2025npn">BibTeX</button></p>
 <div class="pub-bib" id="bib-jacome2025npn" hidden><button class="pub-copy" type="button" data-copy="tex-jacome2025npn">Copy</button><pre id="tex-jacome2025npn">@inproceedings{jacome2025npn,
-  title     = {{NPN}: Non-Linear Projections of the Null-Space for Imaging Inverse Problems},
+  title     = &#123;{NPN}: Non-Linear Projections of the Null-Space for Imaging Inverse Problems},
   author    = {Jacome, Roman and Gualdr{\'o}n-Hurtado, Romario and Suarez, Leon and Arguello, Henry},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
   year      = {2025},
@@ -156,7 +156,7 @@ Publications
 <p class="pub-cite">R. Jacome, R. Gualdr&oacute;n-Hurtado, <strong>L. Suarez-Rodriguez</strong> and H. Arguello, &ldquo;UTOPY: Unrolling Algorithm Learning via Fidelity Homotopy for Inverse Problems,&rdquo; <i>2025 IEEE 10th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP)</i>, pp. 176&ndash;180, 2025.</p>
 <p class="pub-actions"><a class="btn-pill" href="https://doi.org/10.1109/CAMSAP66162.2025.11423864" target="_blank" rel="noopener">DOI</a><a class="btn-pill" href="https://arxiv.org/abs/2509.14394" target="_blank" rel="noopener">arXiv</a><button class="btn-pill btn-bib" type="button" data-bib="bib-jacome2025utopy" aria-expanded="false" aria-controls="bib-jacome2025utopy">BibTeX</button></p>
 <div class="pub-bib" id="bib-jacome2025utopy" hidden><button class="pub-copy" type="button" data-copy="tex-jacome2025utopy">Copy</button><pre id="tex-jacome2025utopy">@inproceedings{jacome2025utopy,
-  title     = {{UTOPY}: Unrolling Algorithm Learning via Fidelity Homotopy for Inverse Problems},
+  title     = &#123;{UTOPY}: Unrolling Algorithm Learning via Fidelity Homotopy for Inverse Problems},
   author    = {Jacome, Roman and Gualdr{\'o}n-Hurtado, Romario and Suarez-Rodriguez, Leon and Arguello, Henry},
   booktitle = {2025 IEEE 10th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP)},
   pages     = {176--180},
@@ -180,7 +180,7 @@ Publications
 <p class="pub-cite"><strong>L. Suarez-Rodriguez</strong>, R. Jacome, R. Gualdr&oacute;n-Hurtado, A. Mantilla-Dulcey and H. Arguello, &ldquo;DICE: Diffusion Consensus Equilibrium for Sparse-View CT Reconstruction,&rdquo; <i>2025 IEEE 10th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP)</i>, pp. 261&ndash;265, 2025.</p>
 <p class="pub-actions"><a class="btn-pill" href="https://doi.org/10.1109/CAMSAP66162.2025.11423960" target="_blank" rel="noopener">DOI</a><a class="btn-pill" href="https://arxiv.org/abs/2509.14566" target="_blank" rel="noopener">arXiv</a><a class="btn-pill" href="https://github.com/leonsuarez24/DICE" target="_blank" rel="noopener">Code</a><button class="btn-pill btn-bib" type="button" data-bib="bib-suarez2025dice" aria-expanded="false" aria-controls="bib-suarez2025dice">BibTeX</button></p>
 <div class="pub-bib" id="bib-suarez2025dice" hidden><button class="pub-copy" type="button" data-copy="tex-suarez2025dice">Copy</button><pre id="tex-suarez2025dice">@inproceedings{suarez2025dice,
-  title     = {{DICE}: Diffusion Consensus Equilibrium for Sparse-View {CT} Reconstruction},
+  title     = &#123;{DICE}: Diffusion Consensus Equilibrium for Sparse-View {CT} Reconstruction},
   author    = {Suarez-Rodriguez, Leon and Jacome, Roman and Gualdr{\'o}n-Hurtado, Romario and Mantilla-Dulcey, Ana and Arguello, Henry},
   booktitle = {2025 IEEE 10th International Workshop on Computational Advances in Multi-Sensor Adaptive Processing (CAMSAP)},
   pages     = {261--265},
@@ -207,7 +207,7 @@ Publications
 <p class="pub-cite">R. Gualdr&oacute;n-Hurtado, R. Jacome, <strong>L. Suarez</strong> and H. Arguello, &ldquo;DIPA: Distilled Preconditioned Algorithms for Solving Imaging Inverse Problems,&rdquo; <i>arXiv preprint arXiv:2605.15456</i>, 2026.</p>
 <p class="pub-actions"><a class="btn-pill" href="https://arxiv.org/abs/2605.15456" target="_blank" rel="noopener">arXiv</a><button class="btn-pill btn-bib" type="button" data-bib="bib-gualdron2026dipa" aria-expanded="false" aria-controls="bib-gualdron2026dipa">BibTeX</button></p>
 <div class="pub-bib" id="bib-gualdron2026dipa" hidden><button class="pub-copy" type="button" data-copy="tex-gualdron2026dipa">Copy</button><pre id="tex-gualdron2026dipa">@misc{gualdron2026dipa,
-  title         = {{DIPA}: Distilled Preconditioned Algorithms for Solving Imaging Inverse Problems},
+  title         = &#123;{DIPA}: Distilled Preconditioned Algorithms for Solving Imaging Inverse Problems},
   author        = {Gualdr{\'o}n-Hurtado, Romario and Jacome, Roman and Suarez, Leon and Arguello, Henry},
   year          = {2026},
   eprint        = {2605.15456},
