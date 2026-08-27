@@ -6,9 +6,26 @@
 /* ---------- Typography ------------------------------------------------- */
 
 body {
-  font-family: "Space Grotesk", $sans-serif;
+  font-family: "Rajdhani", $sans-serif;
+  font-size: 1.04rem;
+  font-weight: 500;
   line-height: 1.65;
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 2v22l6-6 4 10 5-2-4-10h9z' fill='%23080712' stroke='%2357e8f2' stroke-width='2' stroke-linejoin='miter'/%3E%3Cpath d='M5 3v16l5-5h8z' fill='%23ff4fa3' opacity='.72'/%3E%3C/svg%3E") 4 2, auto;
+}
+
+p, li, dl, dt, dd,
+label, input, textarea, select,
+table, th, td,
+.page__lead,
+.author__bio,
+.author__urls,
+.pub-cite {
+  font-family: "Rajdhani", $sans-serif;
+}
+
+code, pre, kbd, samp,
+.highlighter-rouge {
+  font-family: "Share Tech Mono", $monospace;
 }
 
 body::before {
@@ -23,6 +40,8 @@ body::before {
     rgba(0, 0, 0, 0.26) 0 1px,
     transparent 1px 4px
   );
+  contain: strict;
+  transform: translateZ(0);
 }
 
 a,
@@ -37,9 +56,16 @@ h1, h2, h3, h4, h5, h6,
 .page__title,
 .archive__item-title,
 .author__name {
-  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-weight: 700;
   letter-spacing: 0.015em;
+}
+
+button,
+.btn,
+.greedy-nav a,
+.masthead__menu-item a {
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
 }
 
 .page__title {
@@ -89,6 +115,7 @@ a:hover {
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  contain: strict;
   background:
     radial-gradient(circle at 5% 12%, var(--ambient-cyan), transparent 34rem),
     radial-gradient(circle at 94% 10%, var(--ambient-pink), transparent 36rem),
@@ -96,7 +123,6 @@ a:hover {
     radial-gradient(circle at 76% 68%, var(--ambient-yellow), transparent 26rem),
     linear-gradient(160deg, transparent 35%, var(--ambient-violet));
   background-size: 135% 135%;
-  animation: synth-sky-drift 18s ease-in-out infinite alternate;
 }
 
 .synth-scene::before {
@@ -142,15 +168,16 @@ a:hover {
   background:
     radial-gradient(ellipse at 30% 70%, var(--aurora-green), transparent 28%),
     radial-gradient(ellipse at 70% 58%, var(--aurora-yellow), transparent 26%);
-  filter: blur(42px);
+  filter: blur(28px);
+  will-change: transform;
   animation: synth-aurora-drift 13s ease-in-out infinite alternate;
 }
 
 .synth-ocean {
   position: absolute;
   top: 55%;
-  right: 0;
-  left: 0;
+  left: -10%;
+  width: 120%;
   z-index: 1;
   height: 22%;
   border-top: 2px solid var(--ocean-line);
@@ -159,7 +186,8 @@ a:hover {
     linear-gradient(180deg, var(--ocean-top), var(--ocean-bottom));
   background-size: 150% 100%, 100% 100%;
   box-shadow: var(--ocean-glow);
-  animation: synth-ocean-shimmer 9s linear infinite;
+  will-change: transform;
+  animation: synth-ocean-shimmer 9s ease-in-out infinite alternate;
 }
 
 .synth-palm {
@@ -203,6 +231,7 @@ a:hover {
   opacity: var(--car-alpha);
   filter: var(--car-glow);
   transform: translateX(-50%);
+  will-change: transform;
   animation: synth-car-cruise 8s ease-in-out infinite alternate;
 }
 
@@ -243,19 +272,14 @@ a:hover {
 .car-light--front { stroke: var(--neon-yellow); fill: var(--car-light-yellow); }
 .car-light--rear  { stroke: var(--neon-pink); fill: var(--car-light-pink); }
 
-@keyframes synth-sky-drift {
-  from { background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, 50% 50%; }
-  to   { background-position: 10% 8%, 88% 10%, 16% 82%, 82% 62%, 55% 45%; }
-}
-
 @keyframes synth-aurora-drift {
   from { transform: translate3d(-3%, 2%, 0) scale(0.96); }
   to   { transform: translate3d(5%, -4%, 0) scale(1.08); }
 }
 
 @keyframes synth-ocean-shimmer {
-  from { background-position: 0 0, 0 0; }
-  to   { background-position: 180px 0, 0 0; }
+  from { transform: translate3d(-2.5%, 0, 0); }
+  to   { transform: translate3d(2.5%, 0, 0); }
 }
 
 @keyframes synth-car-cruise {
@@ -279,8 +303,6 @@ a:hover {
   box-shadow: var(--panel-shadow);
   outline: 1px solid var(--panel-outline);
   outline-offset: 3px;
-  -webkit-backdrop-filter: blur(16px) saturate(125%);
-          backdrop-filter: blur(16px) saturate(125%);
 }
 
 .page,
@@ -291,12 +313,44 @@ a:hover {
 .sidebar {
   min-width: 0;
   padding: 1rem 0.85rem;
-  overflow-x: hidden;
+  overflow: visible;
+}
+
+.sidebar > div,
+.sidebar .author__avatar {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sidebar .author__avatar {
+  position: relative;
+}
+
+.sidebar .author__avatar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+  width: min(100%, 175px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  border: 2px solid var(--neon-green);
+  box-shadow: var(--avatar-glow-bright);
+  opacity: 0.32;
+  transform: translateX(-50%) scale(0.985);
+  will-change: transform, opacity;
+  animation: avatar-neon-pulse 2.8s ease-in-out infinite;
 }
 
 .sidebar .author__avatar img {
   display: block;
-  width: min(100%, 175px);
+  width: 100%;
+  max-width: 175px;
+  height: auto;
+  padding: 5px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -310,29 +364,35 @@ a:hover {
 
 .sidebar .author__name {
   max-width: 100%;
-  font-family: "Space Grotesk", $sans-serif;
-  font-size: clamp(0.96rem, 1.15vw, 1.12rem);
-  line-height: 1.25;
-  letter-spacing: 0;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
   overflow-wrap: anywhere;
   color: var(--author-name-color);
   text-shadow: var(--glow-pink-soft);
 }
 
 .sidebar .author__bio {
+  width: 100%;
   max-width: 100%;
-  font-size: 0.82rem;
-  line-height: 1.5;
+  font-size: 0.94rem;
+  line-height: 1.42;
+  word-break: normal;
+  hyphens: auto;
   overflow-wrap: anywhere;
 }
 
 .sidebar .author__urls li {
+  width: 100%;
   max-width: 100%;
   white-space: normal;
+  word-break: normal;
   overflow-wrap: anywhere;
 }
 
 .sidebar .author__urls a {
+  width: 100%;
   max-width: 100%;
   padding-right: 0;
   white-space: normal;
@@ -340,17 +400,55 @@ a:hover {
 }
 
 .author__avatar img {
-  border: 2px solid var(--neon-cyan);
+  border: 3px solid var(--neon-cyan);
   border-radius: 0;
   box-shadow: var(--avatar-glow);
+  outline: 2px solid var(--neon-pink);
+  outline-offset: 4px;
+}
+
+@keyframes avatar-neon-pulse {
+  0%, 100% { opacity: 0.28; transform: translateX(-50%) scale(0.985); }
+  50%      { opacity: 0.76; transform: translateX(-50%) scale(1.015); }
+}
+
+@media screen and (min-width: 925px) {
+  #main {
+    display: grid;
+    grid-template-columns: minmax(220px, 250px) minmax(0, 1fr);
+    gap: clamp(1.4rem, 2.6vw, 2.4rem);
+    align-items: start;
+  }
+
+  #main .sidebar {
+    position: sticky;
+    top: calc(#{$masthead-height} + 1rem);
+    grid-column: 1;
+    float: none;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin-right: 0;
+    padding-top: 1rem;
+    overflow: visible;
+  }
+
+  #main .page,
+  #main .archive {
+    grid-column: 2;
+    float: none;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    margin-right: 0;
+  }
 }
 
 /* ---------- Masthead --------------------------------------------------- */
 
 .masthead {
   background: var(--masthead-bg);
-  -webkit-backdrop-filter: blur(14px);
-          backdrop-filter: blur(14px);
   border-bottom: 2px solid var(--masthead-border);
   box-shadow: var(--masthead-glow);
 }
@@ -374,14 +472,14 @@ a:hover {
 }
 
 .masthead__menu-item--lg a {
-  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-size: 0.9em;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .greedy-nav a {
-  font-family: "Space Grotesk", $sans-serif;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-size: 0.9em;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -400,7 +498,7 @@ a:hover {
   align-items: center;
   margin: 0 0.45em 0.45em 0;
   padding: 0.58em 0.82em;
-  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-size: 0.68em;
   font-weight: 700;
   line-height: 1;
@@ -480,6 +578,8 @@ a:hover {
   padding: 1.15em 0 1.05em 2.3em;
   border-bottom: 1px solid var(--panel-border);
   counter-increment: pub;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 170px;
 }
 
 .pub-entry:last-child { border-bottom: 0; }
@@ -489,7 +589,7 @@ a:hover {
   position: absolute;
   left: 0;
   top: 1.45em;
-  font-family: "Space Grotesk", $sans-serif;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-size: 0.68em;
   font-weight: 600;
   line-height: 1;
@@ -523,7 +623,7 @@ a:hover {
   margin: 0;
   padding: 1.1em 1em;
   overflow-x: auto;
-  font-family: $monospace;
+  font-family: "Share Tech Mono", $monospace;
   font-size: 0.78em;
   line-height: 1.55;
   color: var(--global-code-text-color);
@@ -538,7 +638,7 @@ a:hover {
   top: 0.55em;
   right: 0.55em;
   padding: 0.4em 0.65em;
-  font-family: "Orbitron", "Space Grotesk", $sans-serif;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-size: 0.62em;
   font-weight: 700;
   line-height: 1;
@@ -568,6 +668,9 @@ blockquote {
 }
 
 @media screen and (max-width: 600px) {
+  body::before { display: none; }
+
+  .synth-aurora { filter: blur(20px); }
   .synth-scene::before {
     top: 7rem;
     right: -4rem;
@@ -601,6 +704,7 @@ blockquote {
   .synth-aurora,
   .synth-ocean,
   .synth-car,
+  .author__avatar::after,
   a,
   .btn-pill {
     animation: none;
