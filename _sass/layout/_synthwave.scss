@@ -387,6 +387,7 @@ a:hover {
 .page,
 .archive,
 .sidebar {
+  position: relative;
   background:
     linear-gradient(var(--panel-bg), var(--panel-bg)) padding-box,
     linear-gradient(135deg, var(--panel-edge-cyan), var(--neon-green) 22%, transparent 40%, transparent 60%, var(--neon-yellow) 80%, var(--panel-edge-pink)) border-box;
@@ -395,7 +396,12 @@ a:hover {
   box-shadow: var(--panel-shadow);
   outline: 1px solid var(--panel-outline);
   outline-offset: 3px;
+  animation: neon-panel-float 7.2s ease-in-out infinite alternate;
 }
+
+.sidebar { animation-duration: 6.4s; animation-direction: alternate-reverse; }
+.archive { animation-delay: -2.1s; }
+.page { animation-delay: -3.4s; }
 
 .page,
 .archive {
@@ -659,10 +665,11 @@ a:hover {
   position: relative;
   margin-top: 1.5rem;
   padding: clamp(1.1rem, 3vw, 1.7rem);
-  overflow: hidden;
+  overflow: visible;
   background: var(--project-bg);
   border: 2px solid var(--neon-cyan);
   box-shadow: var(--project-glow);
+  animation: neon-card-float 5.8s ease-in-out infinite alternate-reverse;
 }
 
 .project-card::before {
@@ -766,20 +773,28 @@ a:hover {
 
 .pub-entry {
   position: relative;
-  margin: 0;
-  padding: 1.15em 0 1.05em 2.3em;
-  border-bottom: 1px solid var(--panel-border);
+  margin: 0.75rem 0;
+  padding: 1.15em 1em 1.05em 3em;
+  background: var(--publication-box-bg);
+  border: 1px solid var(--publication-box-border);
+  box-shadow: var(--publication-box-glow);
   counter-increment: pub;
   content-visibility: auto;
   contain-intrinsic-size: auto 170px;
+  animation: neon-card-float 6.6s ease-in-out infinite alternate;
 }
 
-.pub-entry:last-child { border-bottom: 0; }
+.pub-entry:nth-child(even) {
+  animation-direction: alternate-reverse;
+  animation-delay: -2.4s;
+}
+
+.pub-entry:nth-child(3n) { animation-delay: -4.1s; }
 
 .pub-entry::before {
   content: counter(pub, decimal-leading-zero);
   position: absolute;
-  left: 0;
+  left: 0.75em;
   top: 1.45em;
   font-family: "Orbitron", "Rajdhani", $sans-serif;
   font-size: 0.68em;
@@ -807,6 +822,7 @@ a:hover {
 .pub-bib {
   position: relative;
   margin-top: 0.7em;
+  animation: neon-card-float 5.2s ease-in-out infinite alternate-reverse;
 }
 
 .pub-bib[hidden] { display: none; }
@@ -848,6 +864,45 @@ a:hover {
   background: var(--neon-purple);
   border-color: var(--neon-purple);
   box-shadow: var(--button-secondary-glow-hover);
+}
+
+/* A separate composited halo lets every frame pulse without repainting it. */
+.page::after,
+.archive::after,
+.sidebar::after,
+.project-card::after,
+.pub-entry::after,
+.pub-bib::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  pointer-events: none;
+  border: 1px solid var(--animated-box-border);
+  box-shadow: var(--animated-box-glow);
+  opacity: 0.24;
+  transform: scale(0.998);
+  animation: neon-frame-pulse 3.4s ease-in-out infinite;
+}
+
+.sidebar::after,
+.project-card::after { animation-delay: -1.7s; }
+
+.pub-entry:nth-child(even)::after,
+.pub-bib::after { animation-delay: -2.5s; }
+
+@keyframes neon-panel-float {
+  from { transform: translate3d(0, 1px, 0); }
+  to   { transform: translate3d(0, -3px, 0); }
+}
+
+@keyframes neon-card-float {
+  from { transform: translate3d(-1px, 1px, 0); }
+  to   { transform: translate3d(1px, -2px, 0); }
+}
+
+@keyframes neon-frame-pulse {
+  0%, 100% { opacity: 0.22; transform: scale(0.998); }
+  50%      { opacity: 0.82; transform: scale(1.004); }
 }
 
 blockquote {
@@ -899,6 +954,18 @@ blockquote {
   .synth-car,
   .car-trails,
   .author__avatar::after,
+  .page,
+  .archive,
+  .sidebar,
+  .project-card,
+  .pub-entry,
+  .pub-bib,
+  .page::after,
+  .archive::after,
+  .sidebar::after,
+  .project-card::after,
+  .pub-entry::after,
+  .pub-bib::after,
   a,
   .btn-pill {
     animation: none;

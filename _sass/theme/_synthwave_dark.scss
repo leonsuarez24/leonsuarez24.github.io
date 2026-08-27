@@ -73,6 +73,8 @@ html[data-theme="dark"] {
   --panel-edge-pink         : rgba(255, 79, 163, 0.90);
   --panel-outline           : rgba(155, 123, 255, 0.34);
   --panel-shadow            : inset 0 0 32px rgba(87, 232, 242, 0.045), 0 18px 55px rgba(0, 0, 0, 0.36), -5px 0 24px rgba(87, 232, 242, 0.17), 5px 0 28px rgba(255, 79, 163, 0.14);
+  --animated-box-border     : rgba(87, 232, 242, 0.76);
+  --animated-box-glow       : 0 0 8px rgba(87, 232, 242, 0.68), 0 0 19px rgba(61, 255, 157, 0.24), 0 0 31px rgba(255, 79, 163, 0.20), inset 0 0 10px rgba(255, 228, 92, 0.08);
   --avatar-glow             : 0 0 0 3px rgba(255, 79, 163, 0.62), 0 0 18px rgba(87, 232, 242, 0.65), 0 0 42px rgba(155, 123, 255, 0.24);
   --avatar-glow-bright      : 0 0 0 3px rgba(255, 228, 92, 0.76), 0 0 14px rgba(61, 255, 157, 0.92), 0 0 34px rgba(87, 232, 242, 0.64), 0 0 58px rgba(255, 79, 163, 0.28);
   --masthead-bg             : rgba(8, 7, 18, 0.96);
@@ -130,6 +132,9 @@ html[data-theme="dark"] {
   --project-tag-text        : #bfffdc;
   --project-tag-bg          : rgba(61, 255, 157, 0.07);
   --project-tag-border      : rgba(61, 255, 157, 0.38);
+  --publication-box-bg      : rgba(13, 10, 30, 0.68);
+  --publication-box-border  : rgba(155, 123, 255, 0.34);
+  --publication-box-glow    : inset 0 0 16px rgba(155, 123, 255, 0.04), 0 0 9px rgba(87, 232, 242, 0.10);
   --highlight-text          : #ff83bd;
   --button-text             : #c9f2f6;
   --button-bg               : rgba(87, 232, 242, 0.10);
