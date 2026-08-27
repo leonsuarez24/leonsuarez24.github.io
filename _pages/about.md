@@ -24,4 +24,4 @@ Selected news
 
 Contact
 ======
-The fastest way to reach me is by email at [leonsuarez24@gmail.com](mailto:leonsuarez24@gmail.com). My CV is [here](/cv/) and as a [PDF](/files/CV_Leon.pdf). I am also on [Google Scholar](https://scholar.google.com/citations?user=FAT4XIUAAAAJ&hl=en), [LinkedIn](https://www.linkedin.com/in/leon-suarez24/) and [GitHub](https://github.com/leonsuarez24).
+<p class="contact-copy">The fastest way to reach me is by <a href="mailto:leonsuarez24@gmail.com">email</a>. My CV is <a href="/cv/">here</a> and as a <a href="/files/CV_Leon.pdf">PDF</a>. I am also on <a href="https://scholar.google.com/citations?user=FAT4XIUAAAAJ&amp;hl=en">Google Scholar</a>, <a href="https://www.linkedin.com/in/leon-suarez24/">LinkedIn</a> and <a href="https://github.com/leonsuarez24">GitHub</a>.</p>

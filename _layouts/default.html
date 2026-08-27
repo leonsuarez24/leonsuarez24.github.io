@@ -33,20 +33,34 @@ layout: compress
         </g>
       </svg>
 
-      <svg class="synth-car" viewBox="0 0 250 105" xmlns="http://www.w3.org/2000/svg" focusable="false">
-        <g fill="none" stroke-linecap="square" stroke-linejoin="bevel">
-          <path class="car-body" d="M13 73L25 55L72 46L105 18H169L205 47L232 56L240 76H13Z"/>
-          <path class="car-glass" d="M84 45L111 24H142V45ZM150 24H166L194 46H150Z"/>
-          <path class="car-detail" d="M22 65H66M199 57L230 62M109 54H171M113 62H137"/>
-          <path class="car-light car-light--front" d="M222 58H236L240 67H225Z"/>
-          <path class="car-light car-light--rear" d="M20 57H35V65H16Z"/>
-          <circle class="car-wheel" cx="65" cy="78" r="18"/>
-          <circle class="car-wheel" cx="190" cy="78" r="18"/>
-          <circle class="car-hub" cx="65" cy="78" r="7"/>
-          <circle class="car-hub" cx="190" cy="78" r="7"/>
-        </g>
-      </svg>
     </div>
+
+    <svg class="synth-car" viewBox="0 0 360 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <g class="car-trails" fill="none" stroke-linecap="square">
+        <path d="M62 94H7"/>
+        <path d="M60 108H18"/>
+        <path d="M65 121H32"/>
+      </g>
+      <g fill="none" stroke-linecap="square" stroke-linejoin="bevel">
+        <path class="car-underglow" d="M82 139H306"/>
+        <path class="car-body" d="M54 119L65 95L82 82L133 72L170 48L245 53L286 82L329 95L340 115L326 129L298 136H88L61 128Z"/>
+        <path class="car-wing" d="M166 71L132 15L207 38L228 73Z"/>
+        <path class="car-glass" d="M174 52L208 42L243 55L271 79H222L207 58L178 73Z"/>
+        <path class="car-detail" d="M75 96H128L146 79H212M236 83H285M154 91H222M169 102H194M200 102H225M94 118H308"/>
+        <path class="car-circuit" d="M231 91H246V101H262V111H285M136 91H122V103H105"/>
+        <path class="car-light car-light--front" d="M313 94H330L338 105H316Z"/>
+        <path class="car-light car-light--rear" d="M62 94H82V106H57Z"/>
+        <path class="car-thruster" d="M54 105L39 98V123L61 119M45 103V119"/>
+        <ellipse class="car-wheel" cx="112" cy="133" rx="27" ry="13"/>
+        <ellipse class="car-wheel" cx="282" cy="133" rx="27" ry="13"/>
+        <ellipse class="car-hub" cx="112" cy="133" rx="11" ry="5"/>
+        <ellipse class="car-hub" cx="282" cy="133" rx="11" ry="5"/>
+        <g class="car-flux">
+          <path d="M174 91L188 116L202 91Z"/>
+          <circle cx="188" cy="102" r="4"/>
+        </g>
+      </g>
+    </svg>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}

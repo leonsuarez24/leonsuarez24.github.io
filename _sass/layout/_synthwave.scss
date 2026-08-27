@@ -266,28 +266,37 @@ a:hover {
 }
 
 .synth-car {
-  position: absolute;
-  left: 68%;
-  bottom: 3.5vh;
-  z-index: 5;
-  width: clamp(210px, 28vw, 390px);
+  position: fixed;
+  right: clamp(-0.75rem, 1vw, 1rem);
+  bottom: clamp(0.5rem, 2vh, 1.4rem);
+  z-index: 4;
+  width: clamp(270px, 31vw, 440px);
   overflow: visible;
   opacity: var(--car-alpha);
   filter: var(--car-glow);
-  transform: translateX(-50%);
+  transform: translate3d(0, 0, 0);
   will-change: transform;
-  animation: synth-car-cruise 8s ease-in-out infinite alternate;
+  pointer-events: none;
+  contain: layout style;
+  animation: synth-car-cruise 5.5s ease-in-out infinite alternate;
 }
 
 .synth-car path,
-.synth-car circle {
+.synth-car circle,
+.synth-car ellipse {
   vector-effect: non-scaling-stroke;
 }
 
 .car-body {
-  stroke: var(--neon-pink);
+  stroke: var(--car-metal);
   stroke-width: 3;
   fill: var(--car-body-fill);
+}
+
+.car-wing {
+  stroke: var(--car-metal);
+  stroke-width: 3;
+  fill: var(--car-wing-fill);
 }
 
 .car-glass {
@@ -301,9 +310,14 @@ a:hover {
   stroke-width: 2;
 }
 
+.car-circuit {
+  stroke: var(--neon-green);
+  stroke-width: 1.5;
+}
+
 .car-wheel {
   stroke: var(--neon-green);
-  stroke-width: 4;
+  stroke-width: 3;
   fill: var(--car-wheel-fill);
 }
 
@@ -316,6 +330,35 @@ a:hover {
 .car-light--front { stroke: var(--neon-yellow); fill: var(--car-light-yellow); }
 .car-light--rear  { stroke: var(--neon-pink); fill: var(--car-light-pink); }
 
+.car-thruster {
+  stroke: var(--neon-pink);
+  stroke-width: 2;
+  fill: var(--car-thruster-fill);
+}
+
+.car-underglow {
+  stroke: var(--neon-cyan);
+  stroke-width: 5;
+  opacity: 0.72;
+}
+
+.car-flux {
+  stroke: var(--neon-yellow);
+  stroke-width: 2;
+  fill: var(--car-flux-fill);
+  filter: var(--car-flux-glow);
+}
+
+.car-trails {
+  stroke: var(--car-trail-color);
+  stroke-width: 3;
+  opacity: 0.55;
+  animation: synth-trail-pulse 1.4s ease-in-out infinite alternate;
+}
+
+.car-trails path:nth-child(2) { stroke: var(--neon-pink); }
+.car-trails path:nth-child(3) { stroke: var(--neon-yellow); }
+
 @keyframes synth-aurora-drift {
   from { transform: translate3d(-3%, 2%, 0) scale(0.96); }
   to   { transform: translate3d(5%, -4%, 0) scale(1.08); }
@@ -327,8 +370,13 @@ a:hover {
 }
 
 @keyframes synth-car-cruise {
-  from { transform: translateX(-54%) translateY(1px); }
-  to   { transform: translateX(-46%) translateY(-3px); }
+  from { transform: translate3d(-8px, 3px, 0) rotate(-0.35deg); }
+  to   { transform: translate3d(7px, -6px, 0) rotate(0.35deg); }
+}
+
+@keyframes synth-trail-pulse {
+  from { opacity: 0.28; }
+  to   { opacity: 0.88; }
 }
 
 .masthead { z-index: 3; }
@@ -420,8 +468,10 @@ a:hover {
 .sidebar .author__bio {
   width: 100%;
   max-width: 100%;
-  font-size: 0.94rem;
-  line-height: 1.42;
+  font-family: "Share Tech Mono", $monospace;
+  font-size: 0.84rem;
+  font-weight: 400;
+  line-height: 1.5;
   word-break: normal;
   hyphens: auto;
   overflow-wrap: anywhere;
@@ -430,6 +480,10 @@ a:hover {
 .sidebar .author__urls li {
   width: 100%;
   max-width: 100%;
+  font-family: "Share Tech Mono", $monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.45;
   white-space: normal;
   word-break: normal;
   overflow-wrap: anywhere;
@@ -438,9 +492,19 @@ a:hover {
 .sidebar .author__urls a {
   width: 100%;
   max-width: 100%;
+  font-family: "Share Tech Mono", $monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
   padding-right: 0;
   white-space: normal;
   overflow-wrap: anywhere;
+}
+
+.contact-copy,
+.contact-copy a {
+  font-family: "Share Tech Mono", $monospace;
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 .author__avatar img {
@@ -811,9 +875,10 @@ blockquote {
   .synth-palm--right { display: none; }
 
   .synth-car {
-    left: 75%;
-    bottom: 2vh;
-    width: 210px;
+    right: -3.5rem;
+    bottom: 0.35rem;
+    width: 235px;
+    opacity: var(--car-alpha-mobile);
   }
 
   .page,
@@ -832,6 +897,7 @@ blockquote {
   .synth-aurora,
   .synth-ocean,
   .synth-car,
+  .car-trails,
   .author__avatar::after,
   a,
   .btn-pill {
