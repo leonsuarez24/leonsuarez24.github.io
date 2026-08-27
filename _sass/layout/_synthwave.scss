@@ -155,7 +155,7 @@ a:hover {
   background-size: 62px 48px;
   transform: perspective(420px) rotateX(62deg);
   transform-origin: 50% 100%;
-  z-index: 2;
+  z-index: 3;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000);
           mask-image: linear-gradient(to bottom, transparent, #000);
 }
@@ -173,12 +173,56 @@ a:hover {
   animation: synth-aurora-drift 13s ease-in-out infinite alternate;
 }
 
+.synth-city {
+  position: absolute;
+  right: -2%;
+  left: -2%;
+  width: 104%;
+  background-color: var(--city-fill);
+  background-image: radial-gradient(circle, var(--city-window) 0 1px, transparent 1.5px);
+  background-size: 19px 16px;
+  filter: var(--city-glow);
+}
+
+.synth-city--far {
+  bottom: 43%;
+  z-index: 1;
+  height: 19%;
+  opacity: var(--city-far-alpha);
+  clip-path: polygon(
+    0 100%, 0 60%, 3% 60%, 3% 38%, 7% 38%, 7% 67%, 11% 67%, 11% 48%,
+    15% 48%, 15% 25%, 18% 25%, 18% 57%, 22% 57%, 22% 42%, 27% 42%,
+    27% 70%, 31% 70%, 31% 33%, 35% 33%, 35% 18%, 38% 18%, 38% 56%,
+    43% 56%, 43% 37%, 47% 37%, 47% 64%, 51% 64%, 51% 28%, 55% 28%,
+    55% 51%, 60% 51%, 60% 22%, 64% 22%, 64% 59%, 69% 59%, 69% 40%,
+    73% 40%, 73% 67%, 78% 67%, 78% 30%, 82% 30%, 82% 49%, 87% 49%,
+    87% 18%, 90% 18%, 90% 57%, 95% 57%, 95% 35%, 100% 35%, 100% 100%
+  );
+}
+
+.synth-city--near {
+  bottom: 40%;
+  z-index: 2;
+  height: 23%;
+  opacity: var(--city-near-alpha);
+  background-size: 23px 20px;
+  background-position: 7px 5px;
+  clip-path: polygon(
+    0 100%, 0 72%, 5% 72%, 5% 45%, 10% 45%, 10% 79%, 15% 79%,
+    15% 54%, 20% 54%, 20% 31%, 25% 31%, 25% 68%, 30% 68%, 30% 40%,
+    36% 40%, 36% 82%, 42% 82%, 42% 52%, 47% 52%, 47% 21%, 52% 21%,
+    52% 62%, 58% 62%, 58% 43%, 64% 43%, 64% 74%, 70% 74%, 70% 28%,
+    75% 28%, 75% 57%, 81% 57%, 81% 37%, 86% 37%, 86% 69%, 92% 69%,
+    92% 47%, 96% 47%, 96% 63%, 100% 63%, 100% 100%
+  );
+}
+
 .synth-ocean {
   position: absolute;
   top: 55%;
   left: -10%;
   width: 120%;
-  z-index: 1;
+  z-index: 2;
   height: 22%;
   border-top: 2px solid var(--ocean-line);
   background:
@@ -193,7 +237,7 @@ a:hover {
 .synth-palm {
   position: absolute;
   bottom: 0;
-  z-index: 3;
+  z-index: 4;
   height: min(50vh, 480px);
   width: auto;
   opacity: var(--palm-alpha);
@@ -225,7 +269,7 @@ a:hover {
   position: absolute;
   left: 68%;
   bottom: 3.5vh;
-  z-index: 4;
+  z-index: 5;
   width: clamp(210px, 28vw, 390px);
   overflow: visible;
   opacity: var(--car-alpha);
@@ -544,6 +588,90 @@ a:hover {
   border-color: var(--neon-purple);
   box-shadow: var(--button-secondary-glow-hover);
 }
+
+/* ---------- Projects --------------------------------------------------- */
+
+.project-card {
+  position: relative;
+  margin-top: 1.5rem;
+  padding: clamp(1.1rem, 3vw, 1.7rem);
+  overflow: hidden;
+  background: var(--project-bg);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: var(--project-glow);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green), var(--neon-yellow), var(--neon-pink));
+  box-shadow: var(--heading-line-glow);
+}
+
+.project-card__header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.project-card__eyebrow {
+  margin: 0 0 0.25rem;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neon-green);
+  text-shadow: var(--project-green-glow);
+}
+
+.project-card__title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.project-card__role {
+  padding: 0.45em 0.7em;
+  font-family: "Orbitron", "Rajdhani", $sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--neon-yellow);
+  border: 1px solid var(--neon-yellow);
+  box-shadow: var(--project-role-glow);
+}
+
+.project-card__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card__tags li {
+  padding: 0.3em 0.55em;
+  font-family: "Share Tech Mono", $monospace;
+  font-size: 0.78rem;
+  color: var(--project-tag-text);
+  background: var(--project-tag-bg);
+  border: 1px solid var(--project-tag-border);
+}
+
+.project-card__actions { margin-top: 1.1rem; }
 
 /* ---------- Publication list ------------------------------------------- */
 

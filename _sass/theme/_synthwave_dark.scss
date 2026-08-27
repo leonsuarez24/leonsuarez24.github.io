@@ -111,6 +111,18 @@ html[data-theme="dark"] {
   --car-light-yellow        : rgba(255, 228, 92, 0.62);
   --car-light-pink          : rgba(255, 79, 163, 0.58);
   --author-name-color       : #e1baff;
+  --city-fill               : #070713;
+  --city-window             : rgba(255, 228, 92, 0.58);
+  --city-far-alpha          : 0.66;
+  --city-near-alpha         : 0.88;
+  --city-glow               : drop-shadow(0 -2px 3px rgba(87, 232, 242, 0.52)) drop-shadow(0 -7px 16px rgba(155, 123, 255, 0.18));
+  --project-bg              : rgba(8, 7, 22, 0.84);
+  --project-glow            : inset 0 0 28px rgba(87, 232, 242, 0.05), 0 0 14px rgba(87, 232, 242, 0.24), 5px 5px 0 rgba(155, 123, 255, 0.42);
+  --project-green-glow      : 0 0 8px rgba(61, 255, 157, 0.56);
+  --project-role-glow       : 3px 3px 0 rgba(255, 79, 163, 0.48), 0 0 10px rgba(255, 228, 92, 0.32);
+  --project-tag-text        : #bfffdc;
+  --project-tag-bg          : rgba(61, 255, 157, 0.07);
+  --project-tag-border      : rgba(61, 255, 157, 0.38);
   --highlight-text          : #ff83bd;
   --button-text             : #c9f2f6;
   --button-bg               : rgba(87, 232, 242, 0.10);
