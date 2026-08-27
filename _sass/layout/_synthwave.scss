@@ -333,22 +333,25 @@ a:hover {
 }
 
 .synth-ufo {
-  position: absolute;
-  top: clamp(5rem, 12vh, 8rem);
-  left: 52%;
-  z-index: 3;
-  width: clamp(190px, 23vw, 330px);
+  position: fixed;
+  top: clamp(5.25rem, 11vh, 7.5rem);
+  right: clamp(0.5rem, 2.5vw, 2.5rem);
+  left: auto;
+  z-index: 5;
+  width: clamp(190px, 19vw, 285px);
   height: auto;
   overflow: visible;
   opacity: var(--ufo-alpha);
   filter: var(--ufo-glow);
   will-change: transform;
+  pointer-events: none;
   animation: synth-ufo-flight 10.5s ease-in-out infinite alternate;
 }
 
 .synth-ufo path,
 .synth-ufo circle,
-.synth-alien path {
+.synth-alien path,
+.synth-alien ellipse {
   vector-effect: non-scaling-stroke;
 }
 
@@ -385,10 +388,10 @@ a:hover {
 
 .synth-alien {
   position: absolute;
-  right: clamp(4rem, 10vw, 11rem);
-  bottom: -0.35rem;
+  right: clamp(3rem, 7vw, 7rem);
+  bottom: 0;
   z-index: 4;
-  height: min(35vh, 330px);
+  height: min(27vh, 250px);
   width: auto;
   overflow: visible;
   color: var(--neon-green);
@@ -405,14 +408,14 @@ a:hover {
 }
 
 .alien-limbs {
-  stroke-width: 4;
+  stroke-width: 3;
   fill: none;
 }
 
-.alien-detail,
+.alien-feet,
 .alien-mouth {
   stroke: var(--neon-purple);
-  stroke-width: 1.5;
+  stroke-width: 2;
   fill: none;
 }
 
@@ -450,8 +453,8 @@ a:hover {
 }
 
 @keyframes synth-ufo-flight {
-  from { transform: translate3d(-66%, 2px, 0) rotate(-1deg); }
-  to   { transform: translate3d(-36%, -10px, 0) rotate(1deg); }
+  from { transform: translate3d(8px, 2px, 0) rotate(-1deg); }
+  to   { transform: translate3d(-46px, -10px, 0) rotate(1deg); }
 }
 
 @keyframes synth-ufo-beam {
@@ -460,8 +463,8 @@ a:hover {
 }
 
 @keyframes synth-alien-breathe {
-  from { transform: translate3d(0, 2px, 0) scaleY(0.992); }
-  to   { transform: translate3d(0, -5px, 0) scaleY(1.008); }
+  from { transform: translate3d(0, 1px, 0); }
+  to   { transform: translate3d(0, -4px, 0); }
 }
 
 @keyframes synth-alien-eyes {
