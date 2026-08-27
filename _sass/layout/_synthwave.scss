@@ -498,6 +498,8 @@ a:hover {
 
 .page,
 .archive {
+  display: flow-root;
+  height: auto;
   padding: clamp(1.1rem, 3vw, 2rem);
 }
 
@@ -1159,8 +1161,31 @@ blockquote {
 
   .page,
   .archive {
+    display: flow-root;
+    height: auto;
     padding: 1rem 0.85rem;
   }
+
+  .page .page__inner-wrap,
+  .page .page__content,
+  .page .page__meta,
+  .page .page__share,
+  .archive .archive__item {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .page .page__inner-wrap,
+  .page .page__content,
+  .page .page__meta,
+  .page .page__share,
+  .archive .archive__item {
+    float: none;
+  }
+
+  .page .page__inner-wrap { display: flow-root; }
 
   #main .sidebar {
     padding: 0.85rem;
