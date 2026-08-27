@@ -265,66 +265,71 @@ a:hover {
   transform: scaleX(-1) rotate(-3deg);
 }
 
-.synth-guitar {
+.synth-stars {
   position: absolute;
-  bottom: 4vh;
-  z-index: 4;
-  height: min(46vh, 440px);
-  width: auto;
+  inset: 0;
+  z-index: 1;
+  opacity: var(--stars-alpha);
+  background-image:
+    radial-gradient(circle, var(--star-cyan) 0 1px, transparent 1.7px),
+    radial-gradient(circle, var(--star-pink) 0 1px, transparent 1.8px),
+    radial-gradient(circle, var(--star-yellow) 0 1px, transparent 1.6px);
+  background-position: 12px 18px, 64px 73px, 103px 31px;
+  background-size: 137px 109px, 193px 151px, 229px 181px;
+  will-change: opacity, transform;
+  animation: synth-stars-twinkle 5.8s ease-in-out infinite alternate;
+}
+
+.synth-symbol {
+  position: absolute;
+  z-index: 3;
+  width: clamp(120px, 13vw, 190px);
+  height: auto;
   overflow: visible;
-  opacity: var(--guitar-alpha);
+  opacity: var(--symbol-alpha);
   will-change: transform;
 }
 
-.synth-guitar path,
-.synth-guitar circle {
+.synth-symbol path,
+.synth-symbol circle {
   vector-effect: non-scaling-stroke;
 }
 
-.guitar-head,
-.guitar-neck,
-.guitar-body {
+.symbol-main {
   stroke-width: 3;
-  fill: var(--guitar-body-fill);
+  fill: var(--symbol-fill);
 }
 
-.guitar-pickguard {
+.symbol-inner {
   stroke: var(--neon-purple);
   stroke-width: 2;
-  fill: var(--guitar-pickguard-fill);
 }
 
-.guitar-strings,
-.guitar-frets {
+.symbol-detail {
   stroke: var(--neon-yellow);
-  stroke-width: 1.25;
-  fill: none;
+  stroke-width: 1.5;
 }
 
-.guitar-pickups {
-  stroke: var(--neon-pink);
-  stroke-width: 3;
-  fill: none;
-}
-
-.guitar-knob {
+.symbol-node {
   stroke: var(--neon-yellow);
   stroke-width: 2;
-  fill: var(--guitar-knob-fill);
+  fill: var(--symbol-node-fill);
 }
 
-.synth-guitar--left {
-  left: clamp(1rem, 8vw, 8rem);
+.synth-symbol--portal {
+  top: clamp(6.5rem, 17vh, 11rem);
+  left: clamp(0.5rem, 4vw, 4rem);
   color: var(--neon-cyan);
-  filter: var(--guitar-cyan-glow);
-  animation: synth-guitar-left-float 6.8s ease-in-out infinite alternate;
+  filter: var(--symbol-cyan-glow);
+  animation: synth-symbol-portal-float 7.2s ease-in-out infinite alternate;
 }
 
-.synth-guitar--right {
-  right: clamp(0.5rem, 7vw, 7rem);
+.synth-symbol--crystal {
+  right: clamp(0.5rem, 4vw, 4rem);
+  bottom: clamp(5rem, 14vh, 10rem);
   color: var(--neon-pink);
-  filter: var(--guitar-pink-glow);
-  animation: synth-guitar-right-float 7.6s ease-in-out -2.4s infinite alternate;
+  filter: var(--symbol-pink-glow);
+  animation: synth-symbol-crystal-float 8.4s ease-in-out -2.8s infinite alternate;
 }
 
 @keyframes synth-aurora-drift {
@@ -337,14 +342,19 @@ a:hover {
   to   { transform: translate3d(2.5%, 0, 0); }
 }
 
-@keyframes synth-guitar-left-float {
-  from { transform: translate3d(-5px, 5px, 0) rotate(-13deg); }
-  to   { transform: translate3d(6px, -8px, 0) rotate(-9deg); }
+@keyframes synth-stars-twinkle {
+  from { opacity: calc(var(--stars-alpha) * 0.62); transform: translate3d(0, 0, 0); }
+  to   { opacity: var(--stars-alpha); transform: translate3d(4px, -3px, 0); }
 }
 
-@keyframes synth-guitar-right-float {
-  from { transform: translate3d(5px, -4px, 0) rotate(12deg); }
-  to   { transform: translate3d(-6px, 8px, 0) rotate(8deg); }
+@keyframes synth-symbol-portal-float {
+  from { transform: translate3d(-4px, 4px, 0) rotate(-4deg); }
+  to   { transform: translate3d(6px, -7px, 0) rotate(2deg); }
+}
+
+@keyframes synth-symbol-crystal-float {
+  from { transform: translate3d(5px, -3px, 0) rotate(3deg); }
+  to   { transform: translate3d(-6px, 7px, 0) rotate(-4deg); }
 }
 
 .masthead { z-index: 3; }
@@ -897,14 +907,13 @@ blockquote {
   .synth-palm { height: 34vh; }
   .synth-palm--right { display: none; }
 
-  .synth-guitar {
-    bottom: 7vh;
-    height: min(35vh, 300px);
-    opacity: var(--guitar-alpha-mobile);
+  .synth-symbol {
+    width: 108px;
+    opacity: var(--symbol-alpha-mobile);
   }
 
-  .synth-guitar--left { left: -2.75rem; }
-  .synth-guitar--right { right: -2.75rem; }
+  .synth-symbol--portal { top: 8rem; left: -2rem; }
+  .synth-symbol--crystal { right: -2rem; bottom: 8rem; }
 
   .page,
   .archive {
@@ -921,7 +930,8 @@ blockquote {
   .synth-scene,
   .synth-aurora,
   .synth-ocean,
-  .synth-guitar,
+  .synth-stars,
+  .synth-symbol,
   .author__avatar::after,
   .page,
   .archive,
