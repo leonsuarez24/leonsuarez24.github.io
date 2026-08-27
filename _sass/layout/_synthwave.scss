@@ -332,6 +332,98 @@ a:hover {
   animation: synth-symbol-crystal-float 8.4s ease-in-out -2.8s infinite alternate;
 }
 
+.synth-ufo {
+  position: absolute;
+  top: clamp(5rem, 12vh, 8rem);
+  left: 52%;
+  z-index: 3;
+  width: clamp(190px, 23vw, 330px);
+  height: auto;
+  overflow: visible;
+  opacity: var(--ufo-alpha);
+  filter: var(--ufo-glow);
+  will-change: transform;
+  animation: synth-ufo-flight 10.5s ease-in-out infinite alternate;
+}
+
+.synth-ufo path,
+.synth-ufo circle,
+.synth-alien path {
+  vector-effect: non-scaling-stroke;
+}
+
+.ufo-beam {
+  stroke: none;
+  fill: var(--ufo-beam-fill);
+  transform-origin: 50% 55%;
+  animation: synth-ufo-beam 2.4s ease-in-out infinite alternate;
+}
+
+.ufo-dome {
+  stroke: var(--neon-purple);
+  stroke-width: 2;
+  fill: var(--ufo-dome-fill);
+}
+
+.ufo-body {
+  stroke: var(--neon-cyan);
+  stroke-width: 3;
+  fill: var(--ufo-body-fill);
+}
+
+.ufo-rim {
+  stroke: var(--neon-pink);
+  stroke-width: 2;
+  fill: none;
+}
+
+.ufo-lights circle {
+  stroke: var(--neon-yellow);
+  stroke-width: 1.5;
+  fill: var(--ufo-light-fill);
+}
+
+.synth-alien {
+  position: absolute;
+  right: clamp(4rem, 10vw, 11rem);
+  bottom: -0.35rem;
+  z-index: 4;
+  height: min(35vh, 330px);
+  width: auto;
+  overflow: visible;
+  color: var(--neon-green);
+  opacity: var(--alien-alpha);
+  filter: var(--alien-glow);
+  will-change: transform;
+  animation: synth-alien-breathe 5.6s ease-in-out -1.3s infinite alternate;
+}
+
+.alien-head,
+.alien-body {
+  stroke-width: 3;
+  fill: var(--alien-body-fill);
+}
+
+.alien-limbs {
+  stroke-width: 4;
+  fill: none;
+}
+
+.alien-detail,
+.alien-mouth {
+  stroke: var(--neon-purple);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.alien-eyes {
+  stroke: var(--neon-yellow);
+  stroke-width: 2;
+  fill: var(--alien-eye-fill);
+  transform-origin: 75px 57px;
+  animation: synth-alien-eyes 2.8s ease-in-out infinite alternate;
+}
+
 @keyframes synth-aurora-drift {
   from { transform: translate3d(-3%, 2%, 0) scale(0.96); }
   to   { transform: translate3d(5%, -4%, 0) scale(1.08); }
@@ -355,6 +447,26 @@ a:hover {
 @keyframes synth-symbol-crystal-float {
   from { transform: translate3d(5px, -3px, 0) rotate(3deg); }
   to   { transform: translate3d(-6px, 7px, 0) rotate(-4deg); }
+}
+
+@keyframes synth-ufo-flight {
+  from { transform: translate3d(-66%, 2px, 0) rotate(-1deg); }
+  to   { transform: translate3d(-36%, -10px, 0) rotate(1deg); }
+}
+
+@keyframes synth-ufo-beam {
+  from { opacity: 0.22; transform: scaleX(0.82); }
+  to   { opacity: 0.82; transform: scaleX(1); }
+}
+
+@keyframes synth-alien-breathe {
+  from { transform: translate3d(0, 2px, 0) scaleY(0.992); }
+  to   { transform: translate3d(0, -5px, 0) scaleY(1.008); }
+}
+
+@keyframes synth-alien-eyes {
+  from { opacity: 0.58; }
+  to   { opacity: 1; }
 }
 
 .masthead { z-index: 3; }
@@ -915,6 +1027,19 @@ blockquote {
   .synth-symbol--portal { top: 8rem; left: -2rem; }
   .synth-symbol--crystal { right: -2rem; bottom: 8rem; }
 
+  .synth-ufo {
+    top: 6.5rem;
+    left: 56%;
+    width: 165px;
+    opacity: var(--ufo-alpha-mobile);
+  }
+
+  .synth-alien {
+    right: -0.75rem;
+    height: min(28vh, 245px);
+    opacity: var(--alien-alpha-mobile);
+  }
+
   .page,
   .archive {
     border-right: 0;
@@ -932,6 +1057,10 @@ blockquote {
   .synth-ocean,
   .synth-stars,
   .synth-symbol,
+  .synth-ufo,
+  .ufo-beam,
+  .synth-alien,
+  .alien-eyes,
   .author__avatar::after,
   .page,
   .archive,
